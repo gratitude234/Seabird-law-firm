@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seabird Law Firm — Justice. Integrity. Results.</title>
+  <meta name="description" content="Seabird Law Firm provides strategic, client-first legal counsel across Litigation, Corporate, Property, Family, Immigration and IP in Nigeria." />
+  <meta name="theme-color" content="#0b1b2b" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Seabird Law Firm — Justice. Integrity. Results." />
+  <meta property="og:description" content="Clear advice. Confident advocacy. Client-first." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/" />
+
+  <style>
+    /* ----------------------------
+       Design Tokens
+    ---------------------------- */
+    :root{
+      --bg:#0b1b2b;
+      --page:#f6f7fb;
+      --surface:#ffffff;
+      --ink:#14202e;
+      --muted:#5b6b7c;
+      --brand:#003f7f;
+      --brand-600:#0a4f9b;
+      --accent:#c9a24b;
+      --ok:#0f995a;
+      --danger:#b51f3b;
+      --shadow: 0 10px 30px rgba(12, 32, 62, .08);
+      --radius: 16px;
+      --radius-lg: 22px;
+      --maxw: 1280px;              /* wider for laptop breathing room */
+      --brand-ghost-bg:#eef5ff;    /* ghost button on dark */
+    }
+
+    /* ----------------------------
+       Base Reset
+    ---------------------------- */
+    *,*::before,*::after{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol",sans-serif;
+      color:var(--ink);
+      background:var(--page);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    img{ max-width:100%; display:block; }
+    a{ color:var(--brand); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    .container{ max-width:var(--maxw); margin-inline:auto; padding-inline:1rem; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+      padding:.85rem 1.2rem; border-radius:999px; border:1px solid transparent;
+      font-weight:600; text-decoration:none; cursor:pointer; transition:.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,.04);
+    }
+    .btn-primary{
+      color:#fff; background:linear-gradient(135deg, var(--brand) 0%, var(--brand-600) 100%);
+    }
+    .btn-primary:hover{ transform:translateY(-1px); box-shadow:0 8px 22px rgba(2,45,90,.25); }
+    .btn-ghost{
+      color:var(--brand); background:var(--brand-ghost-bg); border-color:#d6e6ff;
+    }
+    .btn-ghost:hover{ background:#e2edff; }
+    .chip{
+      display:inline-flex; align-items:center; gap:.45rem;
+      padding:.35rem .7rem; border-radius:999px; font-size:.78rem; font-weight:600;
+      background:#0c1f33; color:#d6e6ff; letter-spacing:.2px;
+    }
+
+    /* ----------------------------
+       Header / Nav
+    ---------------------------- */
+    header.site-header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(140%) blur(6px); /* crisper glass */
+      background:linear-gradient(180deg, rgba(11,27,43,.85), rgba(11,27,43,.65));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      display:flex; align-items:center; gap:1rem;
+      padding:.75rem 0;
+      color:#e8f0ff;
+    }
+    .brand{
+      display:flex; align-items:center; gap:.75rem; text-decoration:none; color:#fff;
+    }
+    .brand .logo{
+      inline-size:40px; block-size:40px; border-radius:12px;
+      background:
+        radial-gradient(120% 140% at 10% 0%, #58a6ff 0%, rgba(88,166,255,0) 40%),
+        radial-gradient(160% 160% at 90% 100%, #00c2ff 0%, rgba(0,194,255,0) 50%),
+        linear-gradient(135deg, #1f6feb 0%, #0366d6 50%, #0ea5e9 100%);
+      position:relative; box-shadow: inset 0 0 0 1px rgba(255,255,255,.15), var(--shadow);
+    }
+    .brand .logo::after{
+      content:""; position:absolute; inset:0;
+      background:
+        radial-gradient(50% 60% at 55% 60%, rgba(255,255,255,.7) 0 18%, transparent 19% 100%),
+        radial-gradient(40% 30% at 60% 38%, rgba(255,255,255,.9) 0 22%, transparent 23% 100%),
+        conic-gradient(from 210deg at 50% 65%, rgba(255,255,255,.35), rgba(255,255,255,0) 45%);
+      mask: radial-gradient(85% 85% at 50% 50%, #000 60%, transparent 61% 100%);
+      border-radius:12px; mix-blend-mode:screen;
+    }
+    .brand .name{ display:flex; flex-direction:column; line-height:1.05; }
+    .brand .name b{ font-family:"Playfair Display", serif; font-weight:700; font-size:1.05rem; letter-spacing:.2px; }
+    .brand .name span{ font-size:.78rem; opacity:.85; letter-spacing:.3px; }
+
+    .nav ul{
+      list-style:none; margin:0; padding:0; display:none; gap:.8rem; align-items:center;
+    }
+    .nav a.navlink{
+      color:#e8f0ff; text-decoration:none; font-weight:600; font-size:.95rem; opacity:.9;
+      padding:.5rem .75rem; border-radius:10px; transition:.2s ease; position:relative;
+    }
+    .nav a.navlink:hover{ background:transparent; opacity:1; text-decoration:none; }
+    .nav a.navlink::after{
+      content:""; position:absolute; left:.6rem; right:.6rem; bottom:.2rem; height:0; border-radius:2px; background:#c9dfff; transition:height .2s ease;
+    }
+    .nav a.navlink:hover::after,
+    .nav a.navlink:focus-visible::after,
+    .nav a.navlink.active::after{ height:2px; }
+
+    .nav .cta{ margin-left:auto; display:flex; align-items:center; gap:.6rem; }
+    .menu-btn{ display:inline-flex; gap:.5rem; align-items:center; justify-content:center; background:transparent; border:1px solid rgba(255,255,255,.16); color:#fff; padding:.65rem .85rem; border-radius:10px; cursor:pointer; }
+    .menu-icon{ inline-size:18px; block-size:18px; position:relative; }
+    .menu-icon::before, .menu-icon::after, .menu-icon span{
+      content:""; position:absolute; left:0; right:0; height:2px; background:#fff; border-radius:2px; transition:.25s ease;
+    }
+    .menu-icon::before{ top:2px; }
+    .menu-icon span{ top:8px; }
+    .menu-icon::after{ top:14px; }
+    .nav.open .menu-icon::before{ transform:translateY(6px) rotate(45deg); }
+    .nav.open .menu-icon span{ opacity:0; }
+    .nav.open .menu-icon::after{ transform:translateY(-6px) rotate(-45deg); }
+
+    /* ----------------------------
+       Hero (Laptop-tuned)
+    ---------------------------- */
+    .hero{
+      position:relative; background:linear-gradient(180deg, #0b1b2b 0%, #0c223a 35%, #0e2845 100%);
+      color:#e8f0ff; padding: clamp(56px, 7vw, 96px) 0 72px; overflow:hidden;
+    }
+    .hero .bg-wave{
+      position:absolute; inset:-10% -10% auto -10%; height:380px; pointer-events:none; opacity:.3;
+      background:
+        radial-gradient(1200px 500px at 10% 20%, rgba(0, 170, 255,.25), transparent 60%),
+        radial-gradient(800px 400px at 80% -10%, rgba(3, 214, 255,.25), transparent 60%),
+        conic-gradient(from 220deg at 50% 50%, rgba(255,255,255,.12), rgba(255,255,255,0) 45%);
+      filter: blur(18px);
+    }
+    .hero .grid{ display:grid; gap:32px; align-items:center; }
+    .hero h1{
+      font-family:"Playfair Display", serif; font-weight:700;
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      line-height:1.08; margin:0 0 .6rem; letter-spacing:.1px; max-width:16ch; /* keeps lines powerful */
+    }
+    .hero p.lead{
+      margin:0 0 1.1rem; font-size: clamp(1rem, 1.3vw, 1.125rem); color:#d6e6ff; max-width: 62ch;
+    }
+    .hero .actions{ display:flex; flex-wrap:wrap; gap:.65rem; margin-top:.5rem; }
+    .hero .statbar{ display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.1rem; color:#cfe2ff; font-weight:600; }
+    .hero .statbar span{ display:inline-flex; align-items:center; gap:.5rem; }
+    .hero .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      border:1px solid rgba(255,255,255,.22); border-radius:var(--radius-lg);
+      padding:1rem; box-shadow: 0 10px 30px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+    }
+    .contact-card{
+      display:grid; gap:.85rem; padding:1.1rem; border-radius:14px;
+      background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.20);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    }
+    .contact-card a{ color:#fff; text-decoration:none; }
+    .contact-card a:hover{ text-decoration:underline; }
+
+    /* ----------------------------
+       Section Helpers
+    ---------------------------- */
+    section{ padding: 64px 0; }
+    .section-head{
+      margin-bottom:26px; display:flex; align-items:flex-end; justify-content:space-between; gap:1rem; flex-wrap:wrap;
+    }
+    .section-head h2{
+      margin:0; font-family:"Playfair Display", serif; font-size: clamp(1.35rem, 3vw, 2rem);
+      letter-spacing:.2px; color:var(--ink);
+    }
+    .section-head p{ margin:0; color:var(--muted); max-width: 70ch; }
+
+    /* ----------------------------
+       Cards & Grids
+    ---------------------------- */
+    .cards{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:16px; }
+    .card{
+      background:var(--surface); border:1px solid #e9edf3; border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
+    }
+    .card h3{ margin:.2rem 0 .4rem; font-size:1.05rem; letter-spacing:.2px; }
+    .card p{ margin:0; color:var(--muted); font-size:.95rem; }
+    .icon{
+      inline-size:36px; block-size:36px; border-radius:10px; display:grid; place-items:center;
+      background:#eef5ff; color:var(--brand); font-weight:700;
+    }
+
+    /* Why Us list */
+    .why{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:16px; }
+    .why .item{ background:var(--surface); border:1px solid #e9edf3; border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); display:flex; gap:12px; }
+    .why .item .tick{ color:var(--ok); }
+
+    /* Attorneys */
+    .team{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:16px; }
+    .avatar{
+      inline-size:64px; block-size:64px; border-radius:16px;
+      background:linear-gradient(135deg,#dbe8ff,#bcd4ff); color:#1e3a8a;
+      font-weight:800; display:grid; place-items:center; font-size:1.25rem;
+      border:1px solid #e3ecff;
+    }
+    .person h3{ margin:.2rem 0 0; }
+    .person p{ margin:.2rem 0 0; color:var(--muted); font-size:.95rem; }
+
+    /* Testimonials */
+    .testis{ display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:16px; }
+    .quote{ border-left:4px solid var(--brand); padding:14px 16px; background:#fff; border-radius:12px; box-shadow:var(--shadow); }
+    .quote .meta{ margin-top:10px; color:var(--muted); font-size:.9rem; }
+
+    /* FAQ */
+    details{ background:#fff; border:1px solid #e9edf3; border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); }
+    details+details{ margin-top:10px; }
+    summary{ cursor:pointer; font-weight:700; color:#0b2844; }
+    summary::-webkit-details-marker{ display:none; }
+
+    /* Contact */
+    .contact-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
+    .form{
+      background:#fff; border:1px solid #e9edf3; border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
+    }
+    .field{ display:grid; gap:6px; margin-bottom:12px; }
+    .field label{ font-weight:600; font-size:.92rem; color:#0b2844; }
+    .field input, .field select, .field textarea{
+      font:inherit; padding:12px 12px; border:1px solid #dfe6ef; border-radius:10px; outline:none; transition:.2s;
+      background:#fbfdff;
+    }
+    .field textarea{ min-height:120px; resize:vertical; }
+    .field input:focus, .field textarea:focus, .field select:focus{ border-color:#bcd4ff; box-shadow: 0 0 0 4px #e9f1ff; }
+
+    /* Footer */
+    footer{
+      background:#0a1623; color:#c2d3e7; padding:32px 0 48px; border-top:1px solid rgba(255,255,255,.06);
+    }
+    .footgrid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:20px; }
+    .footgrid a{ color:#e8f0ff; opacity:.9; }
+    .subtle{ color:#9fb2c8; font-size:.92rem; }
+    .legal{ margin-top:18px; font-size:.85rem; color:#8ea2ba; }
+
+    /* Laptop layout tweaks */
+    @media (min-width: 880px){
+      .nav ul{ display:flex; }
+      .menu-btn{ display:none; }
+      .hero .grid{ grid-template-columns: 1.25fr .75fr; gap:36px; } /* headline dominates */
+      .contact-grid{ grid-template-columns: 1.1fr .9fr; }
+    }
+
+    /* Focus & motion */
+    :focus-visible{ outline:3px solid #9bd1ff; outline-offset:3px; border-radius:10px; }
+    @media (prefers-reduced-motion: reduce){
+      *{ animation-duration:0.01ms!important; animation-iteration-count:1!important; transition-duration:0.01ms!important; scroll-behavior:auto!important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= Header ================= -->
+  <header class="site-header">
+    <div class="container nav" id="nav">
+      <a class="brand" href="#top" aria-label="Seabird Law Firm Home">
+        <span class="logo" aria-hidden="true"></span>
+        <span class="name">
+          <b>Seabird Law Firm</b>
+          <span>Justice. Integrity. Results.</span>
+        </span>
+      </a>
+
+      <ul role="list">
+        <li><a class="navlink" href="#practice">Practice Areas</a></li>
+        <li><a class="navlink" href="#why">Why Us</a></li>
+        <li><a class="navlink" href="#team">Attorneys</a></li>
+        <li><a class="navlink" href="#faq">FAQs</a></li>
+        <li><a class="navlink" href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="cta">
+        <a class="btn btn-ghost" href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn-primary" href="#contact">Book Consultation</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span class="menu-icon"><span></span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Hero ================= -->
+  <section class="hero" id="top" aria-label="Intro">
+    <div class="bg-wave" aria-hidden="true"></div>
+    <div class="container">
+      <div class="grid">
+        <div>
+          <span class="chip" aria-hidden="true">Client-First Counsel</span>
+          <h1>Clear advice. Confident advocacy. <span style="color:#a7c7ff">Results that stand.</span></h1>
+          <p class="lead">
+            Seabird Law Firm delivers precise, business-sensible solutions across <b>Litigation</b>, <b>Corporate</b>, <b>Property</b>, <b>Family</b>,
+            <b>Immigration</b> and <b>IP/Tech</b>. We pair senior judgement with responsive service.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">Book a Consultation</a>
+            <a class="btn btn-ghost" href="https://wa.me/2347041022336" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">Chat on WhatsApp</a>
+          </div>
+          <div class="statbar">
+            <span>⭐ Rated for responsiveness</span>
+            <span>🛡️ Ethical & compliant</span>
+            <span>📍 Lagos • Abuja • PH (by appt.)</span>
+          </div>
+        </div>
+
+        <div class="card" role="complementary" aria-label="Quick contact card">
+          <div class="contact-card">
+            <strong>Start here</strong>
+            <div>
+              <div><b>Email:</b> <a href="mailto:hello@seabirdlaw.ng">hello@seabirdlaw.ng</a></div>
+              <div><b>Phone:</b> <a href="tel:+2340000000000">+234 000 000 0000</a></div>
+              <div><b>WhatsApp:</b> <a href="https://wa.me/2347041022336" target="_blank" rel="noopener">+234 704 102 2336</a></div>
+            </div>
+            <small class="subtle">No attorney-client relationship is formed until engagement is confirmed in writing.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Practice Areas ================= -->
+  <section id="practice" aria-labelledby="practice-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="practice-title">Practice Areas</h2>
+        <p>Focused expertise with practical depth. Click a service to learn more (sub-pages optional).</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon" aria-hidden="true">⚖️</div>
+          <h3>Litigation & Dispute Resolution</h3>
+          <p>Courts, tribunals and ADR with tactical case management for timely outcomes.</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">🏢</div>
+          <h3>Corporate & Commercial</h3>
+          <p>Company setup, governance, contracts, regulatory filings and secretarial support.</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">🏠</div>
+          <h3>Property & Real Estate</h3>
+          <p>Due diligence, conveyance, leases, perfection of title and landlord-tenant advisory.</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">👪</div>
+          <h3>Family & Succession</h3>
+          <p>Marriage, custody, maintenance, wills, probate and estate administration.</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">🛂</div>
+          <h3>Immigration</h3>
+          <p>Visas, work permits, business residency and compliance strategy.</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">💡</div>
+          <h3>Technology & IP</h3>
+          <p>Trademarks, NDAs, licensing, data protection and commercialization.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Why Us ================= -->
+  <section id="why" aria-labelledby="why-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="why-title">Why Seabird</h2>
+        <p>We combine senior judgement with modern client service, keeping you informed at every step.</p>
+      </div>
+      <div class="why">
+        <div class="item"><div class="tick" aria-hidden="true">✔</div><div><b>Clear strategy</b><br><span class="subtle">We map the path early—risks, timelines, costs.</span></div></div>
+        <div class="item"><div class="tick" aria-hidden="true">✔</div><div><b>Responsive</b><br><span class="subtle">Same-day updates and realistic expectations.</span></div></div>
+        <div class="item"><div class="tick" aria-hidden="true">✔</div><div><b>Transparent fees</b><br><span class="subtle">Fixed or capped where feasible. No surprises.</span></div></div>
+        <div class="item"><div class="tick" aria-hidden="true">✔</div><div><b>Business-sensible</b><br><span class="subtle">Advice aligned to commercial outcomes.</span></div></div>
+        <div class="item"><div class="tick" aria-hidden="true">✔</div><div><b>Ethical & compliant</b><br><span class="subtle">Professional standards with diligent process.</span></div></div>
+        <div class="item"><div class="tick" aria-hidden="true">✔</div><div><b>Multi-city presence</b><br><span class="subtle">Lagos • Abuja • Port Harcourt (by appointment).</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Attorneys ================= -->
+  <section id="team" aria-labelledby="team-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="team-title">Featured Attorneys</h2>
+        <p>Seasoned counsel with matter-specific experience.</p>
+      </div>
+
+      <div class="team">
+        <article class="card person">
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div class="avatar" aria-hidden="true">OA</div>
+            <div>
+              <h3>O. Adeyemi</h3>
+              <p>Partner • Litigation & Property • Call ‘12</p>
+            </div>
+          </div>
+          <p style="margin-top:10px;">Complex disputes, real estate transactions and enforcement strategy.</p>
+        </article>
+
+        <article class="card person">
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div class="avatar" aria-hidden="true">TK</div>
+            <div>
+              <h3>T. Kalu</h3>
+              <p>Partner • Corporate & Immigration • Call ‘11</p>
+            </div>
+          </div>
+          <p style="margin-top:10px;">Cross-border corporate, immigration plans and regulator engagement.</p>
+        </article>
+
+        <article class="card person">
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div class="avatar" aria-hidden="true">SN</div>
+            <div>
+              <h3>S. Nwachukwu</h3>
+              <p>Counsel • Tech & IP • Call ‘16</p>
+            </div>
+          </div>
+          <p style="margin-top:10px;">Technology contracts, trademarks and data protection compliance.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Testimonials ================= -->
+  <section aria-labelledby="testi-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="testi-title">What Clients Say</h2>
+        <p>Social proof builds trust. Replace with real reviews when available.</p>
+      </div>
+      <div class="testis">
+        <blockquote class="quote">
+          “They explained the options, costs and timelines clearly. Case settled faster than expected.”
+          <div class="meta">— SME Founder, Lagos</div>
+        </blockquote>
+        <blockquote class="quote">
+          “Strong drafting and negotiation. We felt protected throughout the transaction.”
+          <div class="meta">— Real Estate Investor</div>
+        </blockquote>
+        <blockquote class="quote">
+          “Responsive team. We always knew what would happen next.”
+          <div class="meta">— Family Law Client</div>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQs ================= -->
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="faq-title">FAQs</h2>
+        <p>Short answers to reduce back-and-forth. Expand to read more.</p>
+      </div>
+      <details>
+        <summary>Do you offer a free initial consultation?</summary>
+        <p>We provide a brief case assessment to confirm fit. Full strategy sessions can be booked at a fixed fee.</p>
+      </details>
+      <details>
+        <summary>How do you charge?</summary>
+        <p>Fixed fees for defined work, capped fees for phases, and hourly where suitable. We agree scope in writing.</p>
+      </details>
+      <details>
+        <summary>Can you work remotely or outside Lagos?</summary>
+        <p>Yes. Matters are handled nationwide; in-person meetings by appointment in Lagos, Abuja and Port Harcourt.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ================= Contact ================= -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="contact-title">Contact & Booking</h2>
+        <p>Tell us a bit about your matter. We’ll reply with next steps and timelines.</p>
+      </div>
+
+      <div class="contact-grid">
+        <form class="form" id="contactForm" autocomplete="on" novalidate>
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" required placeholder="Jane Doe" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com" />
+          </div>
+          <div class="field">
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" type="tel" placeholder="+234 ..." />
+          </div>
+          <div class="field">
+            <label for="category">Matter Type</label>
+            <select id="category" name="category" required>
+              <option value="">Select…</option>
+              <option>Litigation</option>
+              <option>Corporate</option>
+              <option>Property</option>
+              <option>Family</option>
+              <option>Immigration</option>
+              <option>Technology & IP</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Brief</label>
+            <textarea id="message" name="message" required placeholder="Please summarise your matter, goals and timeline."></textarea>
+          </div>
+          <div style="display:flex; gap:.6rem; flex-wrap:wrap;">
+            <button class="btn btn-primary" type="submit">Send Enquiry</button>
+            <a class="btn btn-ghost" href="mailto:hello@seabirdlaw.ng?subject=Consultation%20Request">Email Instead</a>
+            <a class="btn btn-ghost" href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp Chat</a>
+          </div>
+          <p class="subtle" style="margin-top:10px;">By submitting, you agree to our <a href="#!" style="color:var(--brand)">Privacy Policy</a>. This site is protected by reasonable administrative and technical safeguards.</p>
+        </form>
+
+        <div class="card">
+          <h3 style="margin:0 0 .4rem;">Offices</h3>
+          <p class="subtle" style="margin:.2rem 0 1rem;">By appointment • Lagos • Abuja • Port Harcourt</p>
+          <div class="quote">
+            <b>Lagos (HQ)</b><br/>Marina/VI axis — directions provided on booking.<br/><br/>
+            <b>Email</b> hello@seabirdlaw.ng<br/>
+            <b>Phone</b> +234 000 000 0000<br/>
+          </div>
+          <p class="subtle" style="margin:1rem 0 0;">Map embed can go here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Footer ================= -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footgrid">
+        <div>
+          <div class="brand" style="margin-bottom:.6rem;">
+            <span class="logo" aria-hidden="true"></span>
+            <span class="name">
+              <b>Seabird Law Firm</b>
+              <span>Justice. Integrity. Results.</span>
+            </span>
+          </div>
+          <p class="subtle">Modern, business-sensible counsel across Litigation, Corporate, Property, Family, Immigration and IP/Tech.</p>
+        </div>
+        <div>
+          <h4 style="margin:.25rem 0 .5rem;">Practice</h4>
+          <nav class="subtle">
+            <a href="#practice">Litigation</a> •
+            <a href="#practice">Corporate</a> •
+            <a href="#practice">Property</a> •
+            <a href="#practice">Family</a> •
+            <a href="#practice">Immigration</a> •
+            <a href="#practice">Tech & IP</a>
+          </nav>
+        </div>
+        <div>
+          <h4 style="margin:.25rem 0 .5rem;">Contact</h4>
+          <p class="subtle">
+            <a href="mailto:hello@seabirdlaw.ng">hello@seabirdlaw.ng</a><br/>
+            <a href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp: +234 704 102 2336</a><br/>
+            Phone: +234 000 000 0000
+          </p>
+        </div>
+        <div>
+          <h4 style="margin:.25rem 0 .5rem;">Links</h4>
+          <p class="subtle">
+            <a href="#!" rel="nofollow">Privacy</a> •
+            <a href="#!" rel="nofollow">Legal Notice</a> •
+            <a href="#!" rel="nofollow">Cookies</a>
+          </p>
+        </div>
+      </div>
+      <div class="legal">
+        © <span id="y"></span> Seabird Law Firm. All rights reserved. This website provides general information and does not constitute legal advice.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= Minimal JS ================= -->
+  <script>
+    // Mobile nav toggle
+    const nav = document.getElementById('nav');
+    const btn = document.getElementById('menuBtn');
+    btn?.addEventListener('click', () => nav.classList.toggle('open'));
+
+    // Active nav underline on scroll (desktop)
+    const sections = ['practice','why','team','faq','contact']
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+    const links = [...document.querySelectorAll('.nav a.navlink')];
+
+    const byHash = (hash) => links.find(a => a.getAttribute('href') === '#' + hash);
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        const link = byHash(id);
+        if(!link) return;
+        if (entry.isIntersecting){
+          links.forEach(a => a.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+    sections.forEach(sec => io.observe(sec));
+
+    // Simple contact form handler (no backend; replace with your endpoint)
+    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const payload = Object.fromEntries(fd.entries());
+      // TODO: POST to your API or form tool
+      alert('Thanks, ' + (payload.name || 'there') + '. Your enquiry has been received. We will get back to you shortly.');
+      e.target.reset();
+    });
+
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- ================= JSON-LD ================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "Seabird Law Firm",
+    "url": "https://example.com/",
+    "areaServed": ["Lagos", "Abuja", "Port Harcourt", "Nigeria"],
+    "telephone": "+2340000000000",
+    "email": "hello@seabirdlaw.ng",
+    "sameAs": [],
+    "address": {"@type":"PostalAddress","addressCountry":"NG"},
+    "makesOffer": [
+      {"@type":"Offer","name":"Litigation & Dispute Resolution"},
+      {"@type":"Offer","name":"Corporate & Commercial"},
+      {"@type":"Offer","name":"Property & Real Estate"},
+      {"@type":"Offer","name":"Family & Succession"},
+      {"@type":"Offer","name":"Immigration"},
+      {"@type":"Offer","name":"Technology & IP"}
+    ]
+  }
+  </script>
+</body>
+</html>
