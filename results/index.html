@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Results — Seabird Law Firm</title>
+  <meta name="description" content="Selected case studies and recent results across Litigation, Corporate, Property, Family, Immigration and Technology/IP." />
+  <meta name="theme-color" content="#0b1b2b" />
+
+  <!-- Social -->
+  <meta property="og:title" content="Results — Seabird Law Firm">
+  <meta property="og:description" content="Selected case studies demonstrating clear strategies and disciplined execution.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seabird-law-firm.vercel.app/results/">
+  <meta property="og:image" content="/assets/og/og-seabird.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts & CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/core.css">
+  <link rel="stylesheet" href="/css/desktop.css" media="(min-width:1024px)">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav" role="navigation" aria-label="Main">
+      <a class="brand" href="/" aria-label="Seabird Law Firm Home">
+        <span class="brand__logo" aria-hidden="true"></span>
+        <span class="brand__name"><b>Seabird Law Firm</b><span>Justice. Integrity. Results.</span></span>
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li class="nav__item"><a class="navlink" href="/#why">Why Us</a></li>
+        <li class="nav__item"><a class="navlink" href="/team/">Team</a></li>
+        <li class="nav__item"><a class="navlink active" href="/results/">Results</a></li>
+        <li class="nav__item"><a class="navlink" href="/resources/">Resources</a></li>
+        <li class="nav__item"><a class="navlink" href="/#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav__cta">
+        <a class="btn btn--ghost hide-on-mobile" href="tel:+2347041022336">Call</a>
+        <a class="btn btn--ghost hide-on-mobile" href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn--primary hide-on-mobile" href="#consult">Book Consultation</a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+          <span class="menu-icon"><span></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile panel -->
+  <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="/#practice">Practice Areas</a>
+    <a href="/#why">Why Us</a>
+    <a href="/team/">Team</a>
+    <a href="/results/">Results</a>
+    <a href="/resources/">Resources</a>
+    <a href="/#faq">FAQs</a>
+    <a href="/#contact">Contact</a>
+    <div class="mobile-panel__group">
+      <a href="tel:+2347041022336">Call +234 704 102 2336</a>
+      <a href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp Chat</a>
+      <a href="#consult">Book Consultation</a>
+    </div>
+  </nav>
+  <div class="overlay" id="overlay"></div>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" aria-label="Results hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__grid">
+        <div class="hero__content fade-in">
+          <span class="chip">📊 Results</span>
+          <h1>Selected case studies and recent outcomes.</h1>
+          <p class="lead">Real matters, time-bound execution. Filter by practice area or outcome, and explore examples of how we work.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="#grid">Browse Results</a>
+            <a class="btn btn--ghost" href="#consult">Book a Consultation</a>
+          </div>
+        </div>
+
+        <aside class="hero__aside fade-in">
+          <div class="card card--glass">
+            <strong>Need a similar outcome?</strong>
+            <p class="muted">Tell us your goals. We’ll map risks, options and a realistic timetable.</p>
+            <a class="btn btn--primary" href="#consult">Start Now</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="container" aria-label="Results filters" style="padding-top:24px;">
+      <div class="section-head fade-in slide-up">
+        <div>
+          <div class="eyebrow">Explore</div>
+          <h2>Filter &amp; search</h2>
+        </div>
+        <p>Use practice chips, outcome tags, search or sort to find relevant matters.</p>
+      </div>
+
+      <div class="cards fade-in slide-up" id="filters" style="row-gap:10px;">
+        <!-- Practice chips -->
+        <div class="pillrow" aria-label="Practice areas">
+          <button class="btn btn--ghost" data-filter-practice="all">All</button>
+          <button class="btn btn--ghost" data-filter-practice="litigation">⚖️ Litigation</button>
+          <button class="btn btn--ghost" data-filter-practice="corporate">🏢 Corporate</button>
+          <button class="btn btn--ghost" data-filter-practice="property">🏠 Property</button>
+          <button class="btn btn--ghost" data-filter-practice="family">👪 Family</button>
+          <button class="btn btn--ghost" data-filter-practice="immigration">🛂 Immigration</button>
+          <button class="btn btn--ghost" data-filter-practice="ip">💡 Tech &amp; IP</button>
+        </div>
+
+        <!-- Outcome tags -->
+        <div class="pillrow" aria-label="Outcome tags">
+          <button class="badge" data-filter-tag="all">All Outcomes</button>
+          <button class="badge" data-filter-tag="won">Won/Granted</button>
+          <button class="badge" data-filter-tag="settled">Settled</button>
+          <button class="badge" data-filter-tag="closed">Closed/Completed</button>
+          <button class="badge" data-filter-tag="advised">Advised</button>
+        </div>
+
+        <!-- Search & sort -->
+        <div class="form" style="display:grid; grid-template-columns:1fr; gap:10px;">
+          <div class="field" style="margin:0;">
+            <label for="q">Search</label>
+            <input id="q" type="search" placeholder="Search by keywords (e.g., interlocutory, title perfection, MSA)…" />
+          </div>
+          <div class="field" style="margin:0;">
+            <label for="sort">Sort by</label>
+            <select id="sort">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="practice">Practice A→Z</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid -->
+    <section id="grid" class="container" aria-label="Results grid">
+      <div class="section-head fade-in slide-up">
+        <div>
+          <div class="eyebrow">Case Studies</div>
+          <h2>Recent Results</h2>
+        </div>
+        <p class="muted">Anonymised and representative. Past results do not guarantee future outcomes.</p>
+      </div>
+
+      <div class="results fade-in slide-up" id="resultsGrid">
+        <!-- Each card carries data attributes for filtering/sorting -->
+        <article class="card" tabindex="0"
+          data-practice="property" data-tags="closed advised"
+          data-date="2025-08-22" data-title="Title perfected on tight deadline">
+          <div class="badge">Property</div>
+          <h3>Title perfected on tight deadline</h3>
+          <p class="muted">Due diligence + land registry perfection completed in 21 days to unlock financing.</p>
+          <div class="pillrow"><span class="badge">Closed</span><span class="badge">Advised</span></div>
+        </article>
+
+        <article class="card" tabindex="0"
+          data-practice="corporate" data-tags="advised closed"
+          data-date="2025-07-09" data-title="Risk-aware vendor contract">
+          <div class="badge">Corporate</div>
+          <h3>Risk-aware vendor contract</h3>
+          <p class="muted">Negotiated liability cap and SLA—reduced client exposure by ~70%.</p>
+          <div class="pillrow"><span class="badge">Advised</span><span class="badge">Closed</span></div>
+        </article>
+
+        <article class="card" tabindex="0"
+          data-practice="litigation" data-tags="won settled"
+          data-date="2025-06-11" data-title="Interlocutory relief granted">
+          <div class="badge">Litigation</div>
+          <h3>Interlocutory relief granted</h3>
+          <p class="muted">Swift application preserved rights pending resolution; matter later settled.</p>
+          <div class="pillrow"><span class="badge">Won</span><span class="badge">Settled</span></div>
+        </article>
+
+        <article class="card" tabindex="0"
+          data-practice="family" data-tags="settled closed"
+          data-date="2025-05-30" data-title="Custody plan agreed pre-trial">
+          <div class="badge">Family</div>
+          <h3>Custody plan agreed pre-trial</h3>
+          <p class="muted">Child-focused interim plan reduced conflict and uncertainty.</p>
+          <div class="pillrow"><span class="badge">Settled</span><span class="badge">Closed</span></div>
+        </article>
+
+        <article class="card" tabindex="0"
+          data-practice="immigration" data-tags="closed advised"
+          data-date="2025-04-19" data-title="Work permit route and renewals">
+          <div class="badge">Immigration</div>
+          <h3>Work permit route and renewals</h3>
+          <p class="muted">STR → CERPAC in predictable timelines; renewal diary implemented.</p>
+          <div class="pillrow"><span class="badge">Advised</span><span class="badge">Closed</span></div>
+        </article>
+
+        <article class="card" tabindex="0"
+          data-practice="ip" data-tags="closed advised"
+          data-date="2025-03-05" data-title="Lean MSA pack for SaaS">
+          <div class="badge">Tech &amp; IP</div>
+          <h3>Lean MSA pack for SaaS</h3>
+          <p class="muted">Playbooks + templates reduced cycle time; clearer SLA &amp; liability caps.</p>
+          <div class="pillrow"><span class="badge">Advised</span><span class="badge">Closed</span></div>
+        </article>
+
+        <article class="card" tabindex="0"
+          data-practice="property" data-tags="closed"
+          data-date="2025-02-12" data-title="Portfolio lease standardisation">
+          <div class="badge">Property</div>
+          <h3>Portfolio lease standardisation</h3>
+          <p class="muted">Unified terms cut negotiation cycles by ~40%.</p>
+          <div class="pillrow"><span class="badge">Closed</span></div>
+        </article>
+
+        <article class="card" tabindex="0"
+          data-practice="ip" data-tags="closed advised"
+          data-date="2025-01-29" data-title="Trademark portfolio filed">
+          <div class="badge">Tech &amp; IP</div>
+          <h3>Trademark portfolio filed</h3>
+          <p class="muted">Marks secured in priority classes aligned with product launch.</p>
+          <div class="pillrow"><span class="badge">Closed</span><span class="badge">Advised</span></div>
+        </article>
+      </div>
+
+      <div style="display:flex;justify-content:center;margin-top:14px;">
+        <button id="clearFilters" class="btn btn--ghost">Clear Filters</button>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="consult" class="container">
+      <div class="section-head fade-in slide-up">
+        <div>
+          <div class="eyebrow">Get Started</div>
+          <h2>Book a Consultation</h2>
+        </div>
+        <p>Tell us your goals. We’ll confirm fit and next steps within 24 hours.</p>
+      </div>
+
+      <div class="contact-grid">
+        <form class="form fade-in slide-up" id="contactForm" autocomplete="on" novalidate>
+          <div class="field"><label for="name">Full Name</label><input id="name" name="name" type="text" required placeholder="Jane Doe"></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@example.com"></div>
+          <div class="field"><label for="phone">Phone (optional)</label><input id="phone" name="phone" type="tel" placeholder="+234 ..."></div>
+          <div class="field">
+            <label for="category">Matter Type</label>
+            <select id="category" name="category" required>
+              <option>Litigation &amp; Dispute Resolution</option>
+              <option>Corporate &amp; Commercial</option>
+              <option>Property &amp; Real Estate</option>
+              <option>Family &amp; Succession</option>
+              <option>Immigration</option>
+              <option>Technology &amp; IP</option>
+            </select>
+          </div>
+          <div class="field"><label for="message">Brief</label><textarea id="message" name="message" required placeholder="Please summarise your matter, goals and timeline."></textarea></div>
+          <div class="form__actions">
+            <button class="btn btn--primary" type="submit">Send Enquiry</button>
+            <a class="btn btn--ghost" href="mailto:hello@seabirdlaw.ng?subject=Consultation%20Request">Email Instead</a>
+            <a class="btn btn--ghost" href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp Chat</a>
+            <span id="formStatus" class="muted" aria-live="polite"></span>
+          </div>
+        </form>
+
+        <div class="card fade-in slide-up">
+          <h3>Direct Contact</h3>
+          <p class="muted">By appointment • Lagos • Abuja • Port Harcourt</p>
+          <div class="quote"><b>Email</b> hello@seabirdlaw.ng<br><b>Phone</b> +234 704 102 2336</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footgrid">
+      <div>
+        <div class="brand brand--footer"><span class="brand__logo" aria-hidden="true"></span><span class="brand__name"><b>Seabird Law Firm</b><span>Justice. Integrity. Results.</span></span></div>
+        <p class="muted">Modern, business-sensible counsel across Litigation, Corporate, Property, Family, Immigration and Technology/IP.</p>
+      </div>
+      <div>
+        <h4>Practice</h4>
+        <nav class="muted">
+          <a href="/practice/litigation.html">Litigation</a> •
+          <a href="/practice/corporate.html">Corporate</a> •
+          <a href="/practice/property.html">Property</a> •
+          <a href="/practice/family.html">Family</a> •
+          <a href="/practice/immigration.html">Immigration</a> •
+          <a href="/practice/ip-tech.html">Tech &amp; IP</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p class="muted"><a href="mailto:hello@seabirdlaw.ng">hello@seabirdlaw.ng</a><br><a href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp: +234 704 102 2336</a><br>Phone: +234 704 102 2336</p>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <p class="muted"><a href="/privacy.html">Privacy</a> • <a href="/legal.html">Legal Notice</a> • <a href="/cookies.html">Cookies</a></p>
+      </div>
+    </div>
+    <div class="container legal">© <span id="y"></span> Seabird Law Firm. All rights reserved.</div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+  <script>
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // ---- Filtering / Searching / Sorting ----
+    const grid = document.getElementById('resultsGrid');
+    const cards = Array.from(grid.querySelectorAll('.card'));
+    const q = document.getElementById('q');
+    const sort = document.getElementById('sort');
+    const clearBtn = document.getElementById('clearFilters');
+    let activePractice = 'all';
+    let activeTag = 'all';
+
+    function applyFilters() {
+      const term = (q.value || '').trim().toLowerCase();
+      cards.forEach(card => {
+        const p = card.dataset.practice;
+        const tags = card.dataset.tags.split(' ');
+        const title = (card.dataset.title || '').toLowerCase();
+        const body = card.textContent.toLowerCase();
+
+        const practiceOk = (activePractice === 'all') || (p === activePractice);
+        const tagOk = (activeTag === 'all') || tags.includes(activeTag);
+        const searchOk = !term || title.includes(term) || body.includes(term);
+
+        const show = practiceOk && tagOk && searchOk;
+        card.style.display = show ? '' : 'none';
+      });
+    }
+
+    function sortCards(mode) {
+      const visible = cards.filter(c => c.style.display !== 'none');
+      const getTitle = c => (c.dataset.title || '').toLowerCase();
+      const getDate = c => new Date(c.dataset.date);
+      const getPractice = c => (c.dataset.practice || '');
+
+      if (mode === 'oldest') visible.sort((a,b) => getDate(a) - getDate(b));
+      else if (mode === 'practice') visible.sort((a,b) => getPractice(a).localeCompare(getPractice(b)));
+      else visible.sort((a,b) => getDate(b) - getDate(a)); // newest
+
+      visible.forEach(c => grid.appendChild(c));
+    }
+
+    document.querySelectorAll('[data-filter-practice]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activePractice = btn.dataset.filterPractice;
+        applyFilters(); sortCards(sort.value);
+      });
+    });
+
+    document.querySelectorAll('[data-filter-tag]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeTag = btn.dataset.filterTag;
+        applyFilters(); sortCards(sort.value);
+      });
+    });
+
+    q.addEventListener('input', () => { applyFilters(); sortCards(sort.value); });
+    sort.addEventListener('change', () => sortCards(sort.value));
+    clearBtn.addEventListener('click', () => {
+      activePractice = 'all'; activeTag = 'all'; q.value = ''; sort.value = 'newest';
+      applyFilters(); sortCards(sort.value);
+    });
+
+    // Initial
+    applyFilters(); sortCards('newest');
+  </script>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Results",
+    "url":"https://seabird-law-firm.vercel.app/results/",
+    "hasPart":[
+      {"@type":"CreativeWork","name":"Title perfected on tight deadline","about":"Property","datePublished":"2025-08-22"},
+      {"@type":"CreativeWork","name":"Risk-aware vendor contract","about":"Corporate","datePublished":"2025-07-09"},
+      {"@type":"CreativeWork","name":"Interlocutory relief granted","about":"Litigation","datePublished":"2025-06-11"}
+    ]
+  }
+  </script>
+</body>
+</html>

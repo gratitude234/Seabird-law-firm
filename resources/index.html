@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Resources — Seabird Law Firm</title>
+  <meta name="description" content="Practical articles, checklists and explainers across Litigation, Corporate, Property, Family, Immigration and Technology/IP." />
+  <meta name="theme-color" content="#0b1b2b" />
+
+  <!-- Social -->
+  <meta property="og:title" content="Resources — Seabird Law Firm">
+  <meta property="og:description" content="Clear, practical legal explainers and checklists you can apply today.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seabird-law-firm.vercel.app/resources/">
+  <meta property="og:image" content="/assets/og/og-seabird.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts & CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/core.css">
+  <link rel="stylesheet" href="/css/desktop.css" media="(min-width:1024px)">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav" role="navigation" aria-label="Main">
+      <a class="brand" href="/" aria-label="Seabird Law Firm Home">
+        <span class="brand__logo" aria-hidden="true"></span>
+        <span class="brand__name"><b>Seabird Law Firm</b><span>Justice. Integrity. Results.</span></span>
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li class="nav__item"><a class="navlink" href="/#why">Why Us</a></li>
+        <li class="nav__item"><a class="navlink" href="/team/">Team</a></li>
+        <li class="nav__item"><a class="navlink" href="/results/">Results</a></li>
+        <li class="nav__item"><a class="navlink active" href="/resources/">Resources</a></li>
+        <li class="nav__item"><a class="navlink" href="/#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav__cta">
+        <a class="btn btn--ghost hide-on-mobile" href="tel:+2347041022336">Call</a>
+        <a class="btn btn--ghost hide-on-mobile" href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn--primary hide-on-mobile" href="#subscribe">Subscribe</a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+          <span class="menu-icon"><span></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile panel -->
+  <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="/#practice">Practice Areas</a>
+    <a href="/#why">Why Us</a>
+    <a href="/team/">Team</a>
+    <a href="/results/">Results</a>
+    <a href="/resources/">Resources</a>
+    <a href="/#faq">FAQs</a>
+    <a href="/#contact">Contact</a>
+    <div class="mobile-panel__group">
+      <a href="tel:+2347041022336">Call +234 704 102 2336</a>
+      <a href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp Chat</a>
+      <a href="#subscribe">Subscribe</a>
+    </div>
+  </nav>
+  <div class="overlay" id="overlay"></div>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" aria-label="Resources hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__grid">
+        <div class="hero__content fade-in">
+          <span class="chip">🧭 Resources</span>
+          <h1>Practical guides. Clear checklists.</h1>
+          <p class="lead">Short, useful reads across litigation, transactions and compliance—written to help you act with confidence.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="#grid">Browse Articles</a>
+            <a class="btn btn--ghost" href="#subscribe">Subscribe</a>
+          </div>
+        </div>
+
+        <aside class="hero__aside fade-in">
+          <div class="card card--glass">
+            <strong>Get updates</strong>
+            <p class="muted">New articles, once or twice a month. No spam.</p>
+            <form class="form" id="subForm" novalidate>
+              <div class="field" style="margin:0 0 10px;">
+                <label for="subEmail">Email</label>
+                <input id="subEmail" type="email" placeholder="you@example.com" required>
+              </div>
+              <button class="btn btn--primary" type="submit">Subscribe</button>
+              <span id="subStatus" class="muted" aria-live="polite"></span>
+            </form>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="container" style="padding-top:24px;">
+      <div class="section-head fade-in slide-up">
+        <div>
+          <div class="eyebrow">Explore</div>
+          <h2>Filter &amp; search</h2>
+        </div>
+        <p>Skim by category, search by keyword, or sort by date/popularity.</p>
+      </div>
+
+      <div class="cards fade-in slide-up" id="filters" style="row-gap:10px;">
+        <!-- Categories -->
+        <div class="pillrow" aria-label="Categories">
+          <button class="btn btn--ghost" data-cat="all">All</button>
+          <button class="btn btn--ghost" data-cat="litigation">⚖️ Litigation</button>
+          <button class="btn btn--ghost" data-cat="corporate">🏢 Corporate</button>
+          <button class="btn btn--ghost" data-cat="property">🏠 Property</button>
+          <button class="btn btn--ghost" data-cat="family">👪 Family</button>
+          <button class="btn btn--ghost" data-cat="immigration">🛂 Immigration</button>
+          <button class="btn btn--ghost" data-cat="ip">💡 Tech &amp; IP</button>
+          <button class="btn btn--ghost" data-cat="compliance">📋 Compliance</button>
+        </div>
+
+        <!-- Search & sort -->
+        <div class="form" style="display:grid; grid-template-columns:1fr; gap:10px;">
+          <div class="field" style="margin:0;">
+            <label for="q">Search</label>
+            <input id="q" type="search" placeholder="e.g., due diligence, liability cap, custody, CERPAC…">
+          </div>
+          <div class="field" style="margin:0;">
+            <label for="sort">Sort by</label>
+            <select id="sort">
+              <option value="newest">Newest first</option>
+              <option value="popular">Most popular</option>
+              <option value="az">Title A→Z</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid -->
+    <section id="grid" class="container" aria-label="Articles grid">
+      <div class="section-head fade-in slide-up">
+        <div>
+          <div class="eyebrow">Latest</div>
+          <h2>Recent Articles</h2>
+        </div>
+        <p class="muted">For general information only. Not legal advice.</p>
+      </div>
+
+      <div class="cards fade-in slide-up" id="articlesGrid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+        <!-- Card template -->
+        <article class="card article"
+          data-cat="property compliance"
+          data-date="2025-09-18"
+          data-views="560"
+          data-title="Due diligence checklist for property buyers">
+          <a class="thumb" href="/resources/due-diligence-checklist.html" aria-label="Open: Due diligence checklist for property buyers">
+            <img src="https://images.unsplash.com/photo-1520880867055-1e30d1cb001c?w=800&auto=format&fit=crop&q=60" alt="" loading="lazy">
+          </a>
+          <div class="badge">Property</div>
+          <h3><a href="/resources/due-diligence-checklist.html">Due diligence checklist for property buyers</a></h3>
+          <p class="muted">A practical list you can actually use at the land registry and with your lawyer.</p>
+          <div class="pillrow">
+            <span class="badge">Checklist</span>
+            <span class="badge">Registry</span>
+          </div>
+        </article>
+
+        <article class="card article"
+          data-cat="corporate ip compliance"
+          data-date="2025-08-05"
+          data-views="890"
+          data-title="7 contract red flags to catch early">
+          <a class="thumb" href="/resources/contract-red-flags.html" aria-label="Open: 7 contract red flags to catch early">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop&q=60" alt="" loading="lazy">
+          </a>
+          <div class="badge">Corporate</div>
+          <h3><a href="/resources/contract-red-flags.html">7 contract red flags to catch early</a></h3>
+          <p class="muted">Scope creep, liability caps, IP ownership and more—what to negotiate before signing.</p>
+          <div class="pillrow">
+            <span class="badge">Contracts</span>
+            <span class="badge">Negotiation</span>
+          </div>
+        </article>
+
+        <article class="card article"
+          data-cat="immigration compliance"
+          data-date="2025-07-12"
+          data-views="430"
+          data-title="Work permit basics for startups">
+          <a class="thumb" href="/resources/visa-work-permit-guide.html" aria-label="Open: Work permit basics for startups">
+            <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&auto=format&fit=crop&q=60" alt="" loading="lazy">
+          </a>
+          <div class="badge">Immigration</div>
+          <h3><a href="/resources/visa-work-permit-guide.html">Work permit basics for startups</a></h3>
+          <p class="muted">What founders and HR teams should know before hiring foreign talent.</p>
+          <div class="pillrow">
+            <span class="badge">CERPAC</span>
+            <span class="badge">STR</span>
+          </div>
+        </article>
+
+        <article class="card article"
+          data-cat="family litigation"
+          data-date="2025-06-03"
+          data-views="370"
+          data-title="How interim custody orders work">
+          <a class="thumb" href="/resources/interim-custody-orders.html" aria-label="Open: How interim custody orders work">
+            <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=800&auto=format&fit=crop&q=60" alt="" loading="lazy">
+          </a>
+          <div class="badge">Family</div>
+          <h3><a href="/resources/interim-custody-orders.html">How interim custody orders work</a></h3>
+          <p class="muted">What courts consider, timelines, and practical tips for parents.</p>
+          <div class="pillrow">
+            <span class="badge">Parenting</span>
+            <span class="badge">Courts</span>
+          </div>
+        </article>
+
+        <article class="card article"
+          data-cat="litigation compliance"
+          data-date="2025-05-16"
+          data-views="610"
+          data-title="Interlocutory applications: a quick primer">
+          <a class="thumb" href="/resources/interlocutory-applications-primer.html" aria-label="Open: Interlocutory applications: a quick primer">
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&auto=format&fit=crop&q=60" alt="" loading="lazy">
+          </a>
+          <div class="badge">Litigation</div>
+          <h3><a href="/resources/interlocutory-applications-primer.html">Interlocutory applications: a quick primer</a></h3>
+          <p class="muted">When to seek interim relief, evidentiary basics, and common pitfalls.</p>
+          <div class="pillrow">
+            <span class="badge">Procedure</span>
+            <span class="badge">Strategy</span>
+          </div>
+        </article>
+
+        <article class="card article"
+          data-cat="ip corporate"
+          data-date="2025-04-08"
+          data-views="520"
+          data-title="Who owns the IP? Hiring and contractors">
+          <a class="thumb" href="/resources/ip-ownership-hiring-contractors.html" aria-label="Open: Who owns the IP? Hiring and contractors">
+            <img src="https://images.unsplash.com/photo-1533167649158-6d508895b680?w=800&auto=format&fit=crop&q=60" alt="" loading="lazy">
+          </a>
+          <div class="badge">Tech &amp; IP</div>
+          <h3><a href="/resources/ip-ownership-hiring-contractors.html">Who owns the IP? Hiring and contractors</a></h3>
+          <p class="muted">Assignments, licences and moral rights: what your contracts must say.</p>
+          <div class="pillrow">
+            <span class="badge">IP</span>
+            <span class="badge">Hiring</span>
+          </div>
+        </article>
+      </div>
+
+      <div style="display:flex;justify-content:center;margin-top:14px;">
+        <button id="clearFilters" class="btn btn--ghost">Clear Filters</button>
+      </div>
+    </section>
+
+    <!-- Subscribe CTA -->
+    <section id="subscribe" class="container">
+      <div class="section-head fade-in slide-up">
+        <div>
+          <div class="eyebrow">Stay Updated</div>
+          <h2>Subscribe for new articles</h2>
+        </div>
+        <p>One concise email per month. Unsubscribe anytime.</p>
+      </div>
+
+      <form class="form fade-in slide-up" id="subFormBottom" novalidate>
+        <div class="field"><label for="subEmail2">Email</label><input id="subEmail2" type="email" placeholder="you@example.com" required></div>
+        <div class="form__actions">
+          <button class="btn btn--primary" type="submit">Subscribe</button>
+          <span id="subStatus2" class="muted" aria-live="polite"></span>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footgrid">
+      <div>
+        <div class="brand brand--footer"><span class="brand__logo" aria-hidden="true"></span><span class="brand__name"><b>Seabird Law Firm</b><span>Justice. Integrity. Results.</span></span></div>
+        <p class="muted">Modern, business-sensible counsel across Litigation, Corporate, Property, Family, Immigration and Technology/IP.</p>
+      </div>
+      <div>
+        <h4>Practice</h4>
+        <nav class="muted">
+          <a href="/practice/litigation.html">Litigation</a> •
+          <a href="/practice/corporate.html">Corporate</a> •
+          <a href="/practice/property.html">Property</a> •
+          <a href="/practice/family.html">Family</a> •
+          <a href="/practice/immigration.html">Immigration</a> •
+          <a href="/practice/ip-tech.html">Tech &amp; IP</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p class="muted"><a href="mailto:hello@seabirdlaw.ng">hello@seabirdlaw.ng</a><br><a href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp: +234 704 102 2336</a><br>Phone: +234 704 102 2336</p>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <p class="muted"><a href="/privacy.html">Privacy</a> • <a href="/legal.html">Legal Notice</a> • <a href="/cookies.html">Cookies</a></p>
+      </div>
+    </div>
+    <div class="container legal">© <span id="y"></span> Seabird Law Firm. All rights reserved.</div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+  <script>
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Subscribe (placeholder)
+    function hookSub(formId, emailId, statusId){
+      const f = document.getElementById(formId);
+      const email = document.getElementById(emailId);
+      const status = document.getElementById(statusId);
+      f?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!email.value) return;
+        status.textContent = 'Subscribing…';
+        await new Promise(r => setTimeout(r, 700));
+        status.textContent = 'Thanks! Please check your inbox to confirm.';
+        f.reset();
+      });
+    }
+    hookSub('subForm', 'subEmail', 'subStatus');
+    hookSub('subFormBottom', 'subEmail2', 'subStatus2');
+
+    // Filtering / searching / sorting
+    const grid = document.getElementById('articlesGrid');
+    const cards = Array.from(grid.querySelectorAll('.article'));
+    const q = document.getElementById('q');
+    const sort = document.getElementById('sort');
+    const clearBtn = document.getElementById('clearFilters');
+    let activeCat = 'all';
+
+    function applyFilters() {
+      const term = (q.value || '').trim().toLowerCase();
+      cards.forEach(card => {
+        const cats = (card.dataset.cat || '').split(' ');
+        const title = (card.dataset.title || '').toLowerCase();
+        const body = card.textContent.toLowerCase();
+        const catOk = (activeCat === 'all') || cats.includes(activeCat);
+        const searchOk = !term || title.includes(term) || body.includes(term);
+        card.style.display = (catOk && searchOk) ? '' : 'none';
+      });
+    }
+
+    function sortCards(mode) {
+      const visible = cards.filter(c => c.style.display !== 'none');
+      const getDate = c => new Date(c.dataset.date);
+      const getViews = c => parseInt(c.dataset.views || '0', 10);
+      const getTitle = c => (c.dataset.title || '').toLowerCase();
+
+      if (mode === 'popular') visible.sort((a,b) => getViews(b) - getViews(a));
+      else if (mode === 'az') visible.sort((a,b) => getTitle(a).localeCompare(getTitle(b)));
+      else visible.sort((a,b) => getDate(b) - getDate(a)); // newest
+      visible.forEach(c => grid.appendChild(c));
+    }
+
+    document.querySelectorAll('[data-cat]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeCat = btn.dataset.cat;
+        applyFilters(); sortCards(sort.value);
+      });
+    });
+
+    q.addEventListener('input', () => { applyFilters(); sortCards(sort.value); });
+    sort.addEventListener('change', () => sortCards(sort.value));
+    clearBtn.addEventListener('click', () => {
+      activeCat = 'all'; q.value = ''; sort.value = 'newest';
+      applyFilters(); sortCards('newest');
+    });
+
+    // Initial
+    applyFilters(); sortCards('newest');
+  </script>
+
+  <!-- JSON-LD Blog schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Blog",
+    "name":"Seabird Law Firm — Resources",
+    "url":"https://seabird-law-firm.vercel.app/resources/",
+    "blogPost":[
+      {"@type":"BlogPosting","headline":"Due diligence checklist for property buyers","datePublished":"2025-09-18","about":"Property"},
+      {"@type":"BlogPosting","headline":"7 contract red flags to catch early","datePublished":"2025-08-05","about":"Corporate"},
+      {"@type":"BlogPosting","headline":"Work permit basics for startups","datePublished":"2025-07-12","about":"Immigration"}
+    ]
+  }
+  </script>
+</body>
+</html>

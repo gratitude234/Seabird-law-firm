@@ -1,0 +1,179 @@
+/* =========================================================
+   Seabird Law — desktop.css (≥1024px)
+   Enhancements ONLY; mobile lives in core.css
+   ========================================================= */
+
+@media (min-width: 1024px) {
+
+  /* -------- Layout & Typography scale -------- */
+  .container { max-width: 1200px; padding-inline: 24px; }
+  section { padding: 72px 0; }
+
+  .section-head h2 {
+    font-size: clamp(1.7rem, 2.2vw, 2.2rem);
+    letter-spacing: .2px;
+  }
+
+  /* -------- Hide mobile-only UI -------- */
+  .actionbar { display: none !important; }
+  .mobile-panel, .overlay { display: none !important; }
+  .hide-on-mobile { display: inline-flex !important; }
+
+  /* -------- Header / Navigation -------- */
+  .nav {
+    gap: 1rem;
+    padding: .9rem 0;
+  }
+
+  /* Larger SVG logo on desktop */
+  .brand__logo-img {
+    inline-size: 40px;
+    block-size: 40px;
+    margin-right: .6rem;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,.22));
+  }
+
+  /* show primary links */
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    margin-left: 12px;
+  }
+  .nav__links .navlink {
+    color: #e8f0ff;
+    font-weight: 700;
+    font-size: .98rem;
+    opacity: .92;
+    padding: .55rem .75rem;
+    border-radius: 10px;
+    position: relative;
+    text-decoration: none;
+    transition: opacity .2s ease;
+  }
+  .nav__links .navlink:hover { opacity: 1; }
+  .nav__links .navlink::after {
+    content:""; position:absolute; left:.6rem; right:.6rem; bottom:.2rem;
+    height: 0; background:#c9dfff; border-radius:2px; transition:height .2s ease;
+  }
+  .nav__links .navlink:hover::after,
+  .nav__links .navlink.active::after { height: 2px; }
+
+  /* menu button hidden on desktop */
+  .menu-btn { display: none; }
+
+  /* -------- Mega menu (Practice Areas) -------- */
+  .nav__item--drop { position: relative; }
+  .drop-panel {
+    position: absolute; left: 0; top: calc(100% + 12px);
+    width: min(780px, 92vw);
+    background: #0e2845; color: #e8f0ff;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 14px; box-shadow: 0 20px 40px rgba(0,0,0,.3);
+    padding: 14px;
+    display: grid; grid-template-columns: repeat(3, minmax(220px, 1fr)); gap: 10px;
+    opacity: 0; transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease;
+    z-index: 60;
+  }
+  /* allow JS to toggle .open; also open on hover */
+  .nav__item--drop:hover .drop-panel,
+  .nav__item--drop.open .drop-panel {
+    opacity: 1; transform: translateY(0); pointer-events: auto;
+  }
+  .drop-item {
+    display: block; padding: 10px; border-radius: 10px;
+    color: #e8f0ff; text-decoration: none;
+  }
+  .drop-item:hover { background: rgba(255,255,255,.06); }
+
+  /* -------- Hero (two-column, premium) -------- */
+  .hero {
+    padding-top: 96px;
+    padding-bottom: 110px;
+  }
+  .hero__bg { height: 480px; opacity: .32; }
+
+  .hero__grid {
+    display: grid;
+    grid-template-columns: 1.25fr .75fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .hero__content h1 {
+    font-size: clamp(2.6rem, 4.2vw, 3.4rem);
+    line-height: 1.18;
+    max-width: 18ch;
+  }
+  .hero .lead { font-size: 1.125rem; max-width: 60ch; }
+  .actions .btn { flex: 0 0 auto; }
+  .actions .btn + .btn { margin-left: .4rem; }
+
+  /* Keep SVG logos crisp and a touch larger on desktop */
+  .logo-row { gap: 22px; }
+  .logo-row img { height: auto; } /* don't clamp height here */
+  .logo--sm { inline-size: 40px; block-size: 40px; }
+  .logo--md { inline-size: 48px; block-size: 48px; }
+
+  /* glass contact card refinement */
+  .card--glass { padding: 18px; }
+  .contact-lines { gap: .7rem; }
+  .hero-media img { aspect-ratio: 4/3; }
+  .hero-media:hover img { transform: scale(1.03); transition: transform .6s cubic-bezier(.2,.8,.4,1); }
+
+  /* -------- Cards & Grids -------- */
+  .cards        { grid-template-columns: repeat(3, minmax(280px, 1fr)); gap: 20px; }
+  .results      { grid-template-columns: repeat(3, minmax(280px, 1fr)); gap: 20px; }
+  .why          { grid-template-columns: repeat(3, minmax(280px, 1fr)); gap: 18px; }
+  .team         { grid-template-columns: repeat(3, minmax(280px, 1fr)); gap: 18px; }
+  .testis       { grid-template-columns: repeat(3, minmax(280px, 1fr)); gap: 18px; }
+
+  /* elevate on hover */
+  .card, .why__item, .quote {
+    transition: transform .3s cubic-bezier(.2,.8,.4,1), box-shadow .3s cubic-bezier(.2,.8,.4,1);
+  }
+  .card:hover, .why__item:hover, .quote:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(12,32,62,.12);
+  }
+
+  /* -------- Horizontal media scroller → desktop gallery grid -------- */
+  #gallery .scroll-x {
+    overflow: visible; padding-bottom: 0;
+    display: grid; grid-template-columns: repeat(4, minmax(240px, 1fr)); gap: 18px;
+  }
+  #gallery .card--media { min-width: 0; }
+
+  /* -------- FAQ refinement -------- */
+  .faq-list details { padding: 16px 18px; }
+  .faq-list summary { font-size: 1rem; }
+
+  /* -------- Contact / booking -------- */
+  .contact-grid {
+    grid-template-columns: 1.1fr .9fr;
+    align-items: start; gap: 20px;
+  }
+
+  /* -------- Footer layout -------- */
+  .footgrid {
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  /* -------- Subtle scroll-in timing (stagger) -------- */
+  .cards.is-visible .card:nth-child(1),
+  .why.is-visible   .why__item:nth-child(1),
+  .testis.is-visible .quote:nth-child(1) { transition-delay: .05s; }
+  .cards.is-visible .card:nth-child(2),
+  .why.is-visible   .why__item:nth-child(2),
+  .testis.is-visible .quote:nth-child(2) { transition-delay: .12s; }
+  .cards.is-visible .card:nth-child(3),
+  .why.is-visible   .why__item:nth-child(3),
+  .testis.is-visible .quote:nth-child(3) { transition-delay: .18s; }
+
+  /* -------- Nice details -------- */
+  .btn--primary:hover { transform: translateY(-2px); }
+  .btn--ghost:hover   { transform: translateY(-2px); }
+}

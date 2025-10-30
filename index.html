@@ -2,672 +2,609 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Seabird Law Firm — Justice. Integrity. Results.</title>
-  <meta name="description" content="Seabird Law Firm provides strategic, client-first legal counsel across Litigation, Corporate, Property, Family, Immigration and IP in Nigeria." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Seabird Law Firm — Clear Advice. Confident Advocacy.</title>
+  <meta name="description" content="Seabird Law Firm provides business-sensible legal counsel across Litigation, Corporate & Commercial, Property, Family, Immigration, and Technology/IP in Nigeria." />
   <meta name="theme-color" content="#0b1b2b" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <!-- Icons -->
+  <link rel="icon" href="/assets/icons/favicon.ico">
+  <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+  <link rel="mask-icon" href="/assets/icons/mask-icon.svg" color="#003f7f">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Seabird Law Firm — Justice. Integrity. Results." />
-  <meta property="og:description" content="Clear advice. Confident advocacy. Client-first." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://example.com/" />
+  <!-- Social (Open Graph / Twitter) -->
+  <meta property="og:title" content="Seabird Law Firm — Justice. Integrity. Results.">
+  <meta property="og:description" content="Clear advice. Confident advocacy. Client-first.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seabird-law-firm.vercel.app/">
+  <meta property="og:image" content="/assets/og/og-seabird.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <style>
-    /* ----------------------------
-       Design Tokens
-    ---------------------------- */
-    :root{
-      --bg:#0b1b2b;
-      --page:#f6f7fb;
-      --surface:#ffffff;
-      --ink:#14202e;
-      --muted:#5b6b7c;
-      --brand:#003f7f;
-      --brand-600:#0a4f9b;
-      --accent:#c9a24b;
-      --ok:#0f995a;
-      --danger:#b51f3b;
-      --shadow: 0 10px 30px rgba(12, 32, 62, .08);
-      --radius: 16px;
-      --radius-lg: 22px;
-      --maxw: 1280px;              /* wider for laptop breathing room */
-      --brand-ghost-bg:#eef5ff;    /* ghost button on dark */
-    }
+  <!-- Fonts (Inter + Playfair Display) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-    /* ----------------------------
-       Base Reset
-    ---------------------------- */
-    *,*::before,*::after{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol",sans-serif;
-      color:var(--ink);
-      background:var(--page);
-      line-height:1.6;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-    }
-    img{ max-width:100%; display:block; }
-    a{ color:var(--brand); text-decoration:none; }
-    a:hover{ text-decoration:underline; }
-    .container{ max-width:var(--maxw); margin-inline:auto; padding-inline:1rem; }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
-      padding:.85rem 1.2rem; border-radius:999px; border:1px solid transparent;
-      font-weight:600; text-decoration:none; cursor:pointer; transition:.25s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,.04);
-    }
-    .btn-primary{
-      color:#fff; background:linear-gradient(135deg, var(--brand) 0%, var(--brand-600) 100%);
-    }
-    .btn-primary:hover{ transform:translateY(-1px); box-shadow:0 8px 22px rgba(2,45,90,.25); }
-    .btn-ghost{
-      color:var(--brand); background:var(--brand-ghost-bg); border-color:#d6e6ff;
-    }
-    .btn-ghost:hover{ background:#e2edff; }
-    .chip{
-      display:inline-flex; align-items:center; gap:.45rem;
-      padding:.35rem .7rem; border-radius:999px; font-size:.78rem; font-weight:600;
-      background:#0c1f33; color:#d6e6ff; letter-spacing:.2px;
-    }
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/core.css">
+  <link rel="preload" href="/css/desktop.css" as="style" media="(min-width:1024px)">
+  <link rel="stylesheet" href="/css/desktop.css" media="(min-width:1024px)">
 
-    /* ----------------------------
-       Header / Nav
-    ---------------------------- */
-    header.site-header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(140%) blur(6px); /* crisper glass */
-      background:linear-gradient(180deg, rgba(11,27,43,.85), rgba(11,27,43,.65));
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .nav{
-      display:flex; align-items:center; gap:1rem;
-      padding:.75rem 0;
-      color:#e8f0ff;
-    }
-    .brand{
-      display:flex; align-items:center; gap:.75rem; text-decoration:none; color:#fff;
-    }
-    .brand .logo{
-      inline-size:40px; block-size:40px; border-radius:12px;
-      background:
-        radial-gradient(120% 140% at 10% 0%, #58a6ff 0%, rgba(88,166,255,0) 40%),
-        radial-gradient(160% 160% at 90% 100%, #00c2ff 0%, rgba(0,194,255,0) 50%),
-        linear-gradient(135deg, #1f6feb 0%, #0366d6 50%, #0ea5e9 100%);
-      position:relative; box-shadow: inset 0 0 0 1px rgba(255,255,255,.15), var(--shadow);
-    }
-    .brand .logo::after{
-      content:""; position:absolute; inset:0;
-      background:
-        radial-gradient(50% 60% at 55% 60%, rgba(255,255,255,.7) 0 18%, transparent 19% 100%),
-        radial-gradient(40% 30% at 60% 38%, rgba(255,255,255,.9) 0 22%, transparent 23% 100%),
-        conic-gradient(from 210deg at 50% 65%, rgba(255,255,255,.35), rgba(255,255,255,0) 45%);
-      mask: radial-gradient(85% 85% at 50% 50%, #000 60%, transparent 61% 100%);
-      border-radius:12px; mix-blend-mode:screen;
-    }
-    .brand .name{ display:flex; flex-direction:column; line-height:1.05; }
-    .brand .name b{ font-family:"Playfair Display", serif; font-weight:700; font-size:1.05rem; letter-spacing:.2px; }
-    .brand .name span{ font-size:.78rem; opacity:.85; letter-spacing:.3px; }
-
-    .nav ul{
-      list-style:none; margin:0; padding:0; display:none; gap:.8rem; align-items:center;
-    }
-    .nav a.navlink{
-      color:#e8f0ff; text-decoration:none; font-weight:600; font-size:.95rem; opacity:.9;
-      padding:.5rem .75rem; border-radius:10px; transition:.2s ease; position:relative;
-    }
-    .nav a.navlink:hover{ background:transparent; opacity:1; text-decoration:none; }
-    .nav a.navlink::after{
-      content:""; position:absolute; left:.6rem; right:.6rem; bottom:.2rem; height:0; border-radius:2px; background:#c9dfff; transition:height .2s ease;
-    }
-    .nav a.navlink:hover::after,
-    .nav a.navlink:focus-visible::after,
-    .nav a.navlink.active::after{ height:2px; }
-
-    .nav .cta{ margin-left:auto; display:flex; align-items:center; gap:.6rem; }
-    .menu-btn{ display:inline-flex; gap:.5rem; align-items:center; justify-content:center; background:transparent; border:1px solid rgba(255,255,255,.16); color:#fff; padding:.65rem .85rem; border-radius:10px; cursor:pointer; }
-    .menu-icon{ inline-size:18px; block-size:18px; position:relative; }
-    .menu-icon::before, .menu-icon::after, .menu-icon span{
-      content:""; position:absolute; left:0; right:0; height:2px; background:#fff; border-radius:2px; transition:.25s ease;
-    }
-    .menu-icon::before{ top:2px; }
-    .menu-icon span{ top:8px; }
-    .menu-icon::after{ top:14px; }
-    .nav.open .menu-icon::before{ transform:translateY(6px) rotate(45deg); }
-    .nav.open .menu-icon span{ opacity:0; }
-    .nav.open .menu-icon::after{ transform:translateY(-6px) rotate(-45deg); }
-
-    /* ----------------------------
-       Hero (Laptop-tuned)
-    ---------------------------- */
-    .hero{
-      position:relative; background:linear-gradient(180deg, #0b1b2b 0%, #0c223a 35%, #0e2845 100%);
-      color:#e8f0ff; padding: clamp(56px, 7vw, 96px) 0 72px; overflow:hidden;
-    }
-    .hero .bg-wave{
-      position:absolute; inset:-10% -10% auto -10%; height:380px; pointer-events:none; opacity:.3;
-      background:
-        radial-gradient(1200px 500px at 10% 20%, rgba(0, 170, 255,.25), transparent 60%),
-        radial-gradient(800px 400px at 80% -10%, rgba(3, 214, 255,.25), transparent 60%),
-        conic-gradient(from 220deg at 50% 50%, rgba(255,255,255,.12), rgba(255,255,255,0) 45%);
-      filter: blur(18px);
-    }
-    .hero .grid{ display:grid; gap:32px; align-items:center; }
-    .hero h1{
-      font-family:"Playfair Display", serif; font-weight:700;
-      font-size: clamp(2rem, 4.5vw, 3.4rem);
-      line-height:1.08; margin:0 0 .6rem; letter-spacing:.1px; max-width:16ch; /* keeps lines powerful */
-    }
-    .hero p.lead{
-      margin:0 0 1.1rem; font-size: clamp(1rem, 1.3vw, 1.125rem); color:#d6e6ff; max-width: 62ch;
-    }
-    .hero .actions{ display:flex; flex-wrap:wrap; gap:.65rem; margin-top:.5rem; }
-    .hero .statbar{ display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.1rem; color:#cfe2ff; font-weight:600; }
-    .hero .statbar span{ display:inline-flex; align-items:center; gap:.5rem; }
-    .hero .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
-      border:1px solid rgba(255,255,255,.22); border-radius:var(--radius-lg);
-      padding:1rem; box-shadow: 0 10px 30px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.12);
-      backdrop-filter: blur(10px);
-    }
-    .contact-card{
-      display:grid; gap:.85rem; padding:1.1rem; border-radius:14px;
-      background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.20);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
-    }
-    .contact-card a{ color:#fff; text-decoration:none; }
-    .contact-card a:hover{ text-decoration:underline; }
-
-    /* ----------------------------
-       Section Helpers
-    ---------------------------- */
-    section{ padding: 64px 0; }
-    .section-head{
-      margin-bottom:26px; display:flex; align-items:flex-end; justify-content:space-between; gap:1rem; flex-wrap:wrap;
-    }
-    .section-head h2{
-      margin:0; font-family:"Playfair Display", serif; font-size: clamp(1.35rem, 3vw, 2rem);
-      letter-spacing:.2px; color:var(--ink);
-    }
-    .section-head p{ margin:0; color:var(--muted); max-width: 70ch; }
-
-    /* ----------------------------
-       Cards & Grids
-    ---------------------------- */
-    .cards{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:16px; }
-    .card{
-      background:var(--surface); border:1px solid #e9edf3; border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
-    }
-    .card h3{ margin:.2rem 0 .4rem; font-size:1.05rem; letter-spacing:.2px; }
-    .card p{ margin:0; color:var(--muted); font-size:.95rem; }
-    .icon{
-      inline-size:36px; block-size:36px; border-radius:10px; display:grid; place-items:center;
-      background:#eef5ff; color:var(--brand); font-weight:700;
-    }
-
-    /* Why Us list */
-    .why{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:16px; }
-    .why .item{ background:var(--surface); border:1px solid #e9edf3; border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); display:flex; gap:12px; }
-    .why .item .tick{ color:var(--ok); }
-
-    /* Attorneys */
-    .team{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:16px; }
-    .avatar{
-      inline-size:64px; block-size:64px; border-radius:16px;
-      background:linear-gradient(135deg,#dbe8ff,#bcd4ff); color:#1e3a8a;
-      font-weight:800; display:grid; place-items:center; font-size:1.25rem;
-      border:1px solid #e3ecff;
-    }
-    .person h3{ margin:.2rem 0 0; }
-    .person p{ margin:.2rem 0 0; color:var(--muted); font-size:.95rem; }
-
-    /* Testimonials */
-    .testis{ display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:16px; }
-    .quote{ border-left:4px solid var(--brand); padding:14px 16px; background:#fff; border-radius:12px; box-shadow:var(--shadow); }
-    .quote .meta{ margin-top:10px; color:var(--muted); font-size:.9rem; }
-
-    /* FAQ */
-    details{ background:#fff; border:1px solid #e9edf3; border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); }
-    details+details{ margin-top:10px; }
-    summary{ cursor:pointer; font-weight:700; color:#0b2844; }
-    summary::-webkit-details-marker{ display:none; }
-
-    /* Contact */
-    .contact-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
-    .form{
-      background:#fff; border:1px solid #e9edf3; border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
-    }
-    .field{ display:grid; gap:6px; margin-bottom:12px; }
-    .field label{ font-weight:600; font-size:.92rem; color:#0b2844; }
-    .field input, .field select, .field textarea{
-      font:inherit; padding:12px 12px; border:1px solid #dfe6ef; border-radius:10px; outline:none; transition:.2s;
-      background:#fbfdff;
-    }
-    .field textarea{ min-height:120px; resize:vertical; }
-    .field input:focus, .field textarea:focus, .field select:focus{ border-color:#bcd4ff; box-shadow: 0 0 0 4px #e9f1ff; }
-
-    /* Footer */
-    footer{
-      background:#0a1623; color:#c2d3e7; padding:32px 0 48px; border-top:1px solid rgba(255,255,255,.06);
-    }
-    .footgrid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:20px; }
-    .footgrid a{ color:#e8f0ff; opacity:.9; }
-    .subtle{ color:#9fb2c8; font-size:.92rem; }
-    .legal{ margin-top:18px; font-size:.85rem; color:#8ea2ba; }
-
-    /* Laptop layout tweaks */
-    @media (min-width: 880px){
-      .nav ul{ display:flex; }
-      .menu-btn{ display:none; }
-      .hero .grid{ grid-template-columns: 1.25fr .75fr; gap:36px; } /* headline dominates */
-      .contact-grid{ grid-template-columns: 1.1fr .9fr; }
-    }
-
-    /* Focus & motion */
-    :focus-visible{ outline:3px solid #9bd1ff; outline-offset:3px; border-radius:10px; }
-    @media (prefers-reduced-motion: reduce){
-      *{ animation-duration:0.01ms!important; animation-iteration-count:1!important; transition-duration:0.01ms!important; scroll-behavior:auto!important; }
-    }
-  </style>
+  <!-- PWA (optional) -->
+  <link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ================= Header ================= -->
-  <header class="site-header">
-    <div class="container nav" id="nav">
-      <a class="brand" href="#top" aria-label="Seabird Law Firm Home">
-        <span class="logo" aria-hidden="true"></span>
-        <span class="name">
+  <!-- ================= Header / Nav ================= -->
+  <header class="site-header improved" id="siteHeader">
+    <div class="container nav" role="navigation" aria-label="Main">
+      <!-- Brand -->
+      <a class="brand" href="/" aria-label="Seabird Law Firm Home">
+        <span class="brand__logo" aria-hidden="true">
+          <!-- Inline brand mark -->
+          <svg class="brand__logo-img" width="28" height="28" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false">
+            <circle cx="32" cy="32" r="30" class="navy" fill="#0b1b2b"/>
+            <!-- abstract seabird/scale hybrid stroke -->
+            <path d="M32 12v18m-12 8c6 0 12-5 12-10 0 5 6 10 12 10M20 38l-4 12h32l-4-12" class="gold" stroke="#c9a24b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </span>
+        <span class="brand__name">
           <b>Seabird Law Firm</b>
           <span>Justice. Integrity. Results.</span>
         </span>
       </a>
 
-      <ul role="list">
-        <li><a class="navlink" href="#practice">Practice Areas</a></li>
-        <li><a class="navlink" href="#why">Why Us</a></li>
-        <li><a class="navlink" href="#team">Attorneys</a></li>
-        <li><a class="navlink" href="#faq">FAQs</a></li>
-        <li><a class="navlink" href="#contact">Contact</a></li>
+      <!-- Primary links -->
+      <ul class="nav__links" role="list">
+        <li class="nav__item nav__item--drop" id="dropPractice">
+          <!-- Button (not link) for accessible dropdown -->
+          <button class="navlink has-caret" type="button"
+                  aria-haspopup="true" aria-expanded="false" aria-controls="practicePanel">
+            Practice Areas <span class="caret" aria-hidden="true"></span>
+          </button>
+          <div class="drop-panel" id="practicePanel" role="menu" aria-label="Practice Areas">
+            <a class="drop-item" href="/practice/litigation.html">⚖️ Litigation &amp; Dispute Resolution<br><span class="muted">Courts, tribunals &amp; ADR.</span></a>
+            <a class="drop-item" href="/practice/corporate.html">🏢 Corporate &amp; Commercial<br><span class="muted">Company, contracts, governance.</span></a>
+            <a class="drop-item" href="/practice/property.html">🏠 Property &amp; Real Estate<br><span class="muted">Due diligence, conveyance, title.</span></a>
+            <a class="drop-item" href="/practice/family.html">👪 Family &amp; Succession<br><span class="muted">Custody, maintenance, probate.</span></a>
+            <a class="drop-item" href="/practice/immigration.html">🛂 Immigration<br><span class="muted">Visas, permits, residency.</span></a>
+            <a class="drop-item" href="/practice/ip-tech.html">💡 Technology &amp; IP<br><span class="muted">Trademarks, licensing, data.</span></a>
+          </div>
+        </li>
+        <li class="nav__item"><a class="navlink" href="#why">Why Us</a></li>
+        <li class="nav__item"><a class="navlink" href="/team/">Team</a></li>
+        <li class="nav__item"><a class="navlink" href="/results/">Results</a></li>
+        <li class="nav__item"><a class="navlink" href="/resources/">Resources</a></li>
+        <li class="nav__item"><a class="navlink" href="#contact">Contact</a></li>
       </ul>
 
-      <div class="cta">
-        <a class="btn btn-ghost" href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp</a>
-        <a class="btn btn-primary" href="#contact">Book Consultation</a>
-        <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span class="menu-icon"><span></span></span></button>
+      <!-- CTAs + mobile menu -->
+      <div class="nav__cta">
+        <a class="btn btn--ghost hide-on-mobile" href="tel:+2347041022336">Call</a>
+        <a class="btn btn--ghost hide-on-mobile" href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn--primary hide-on-mobile" href="#contact">Book Consultation</a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+          <span class="menu-icon"><span></span></span>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- ================= Hero ================= -->
-  <section class="hero" id="top" aria-label="Intro">
-    <div class="bg-wave" aria-hidden="true"></div>
-    <div class="container">
-      <div class="grid">
-        <div>
-          <span class="chip" aria-hidden="true">Client-First Counsel</span>
-          <h1>Clear advice. Confident advocacy. <span style="color:#a7c7ff">Results that stand.</span></h1>
+  <!-- ================= Mobile slide-in navigation ================= -->
+  <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation" aria-hidden="true">
+    <!-- mini panel header with close -->
+    <div class="mobile-panel__head">
+      <span class="brand-mini">
+        <svg width="22" height="22" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" fill="#0b1b2b"/>
+          <path d="M32 12v18m-12 8c6 0 12-5 12-10 0 5 6 10 12 10M20 38l-4 12h32l-4-12"
+                stroke="#c9a24b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <strong>Menu</strong>
+      </span>
+      <button class="close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+    </div>
+
+    <a href="#practice">Practice Areas</a>
+    <a href="#why">Why Us</a>
+    <a href="/team/">Team</a>
+    <a href="/results/">Results</a>
+    <a href="/resources/">Resources</a>
+    <a href="#faq">FAQs</a>
+    <a href="#contact">Contact</a>
+
+    <div class="mobile-panel__group">
+      <a href="tel:+2347041022336">Call +234 704 102 2336</a>
+      <a href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp Chat</a>
+      <a href="#contact">Book Consultation</a>
+    </div>
+  </nav>
+  <div class="overlay" id="overlay" hidden></div>
+
+  <!-- ================= Main ================= -->
+  <main id="main" tabindex="-1">
+    <!-- ============ Hero ============ -->
+    <section class="hero" id="top" aria-label="Intro">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__grid">
+        <div class="hero__content fade-in">
+          <h1>
+            Clear advice. Confident advocacy.
+            <span class="accent">Results that stand.</span>
+          </h1>
           <p class="lead">
-            Seabird Law Firm delivers precise, business-sensible solutions across <b>Litigation</b>, <b>Corporate</b>, <b>Property</b>, <b>Family</b>,
-            <b>Immigration</b> and <b>IP/Tech</b>. We pair senior judgement with responsive service.
+            Seabird Law Firm delivers precise, business-sensible solutions across
+            <b>Litigation</b>, <b>Corporate</b>, <b>Property</b>, <b>Family</b>, <b>Immigration</b> and
+            <b>Technology/IP</b>. We pair senior judgement with responsive service.
           </p>
           <div class="actions">
-            <a class="btn btn-primary" href="#contact">Book a Consultation</a>
-            <a class="btn btn-ghost" href="https://wa.me/2347041022336" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">Chat on WhatsApp</a>
+            <a class="btn btn--primary" href="#contact">Book a Consultation</a>
+            <a class="btn btn--ghost" href="https://wa.me/2347041022336" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">Chat on WhatsApp</a>
           </div>
-          <div class="statbar">
-            <span>⭐ Rated for responsiveness</span>
-            <span>🛡️ Ethical & compliant</span>
+          <div class="statbar" aria-label="Key facts">
+            <span>⭐ 24-hour response</span>
+            <span>🛡️ Ethical &amp; compliant</span>
             <span>📍 Lagos • Abuja • PH (by appt.)</span>
           </div>
+
+          <!-- Local SVGs instead of external -->
+          <div class="logo-row" aria-label="Affiliations">
+            <img src="/assets/icons/justice-scale.svg" alt="Justice scale icon" class="logo logo--sm gold" width="36" height="36" loading="lazy">
+            <img src="/assets/brand/placeholder-bird.svg" alt="Seabird placeholder logo" class="logo logo--md navy" width="44" height="44" loading="lazy">
+            <img src="/assets/brand/placeholder-shield.svg" alt="Seabird shield placeholder" class="logo logo--md navy" width="44" height="44" loading="lazy">
+          </div>
         </div>
 
-        <div class="card" role="complementary" aria-label="Quick contact card">
-          <div class="contact-card">
+        <aside class="hero__aside fade-in">
+          <span class="chip" aria-hidden="true">Client-First Counsel</span>
+          <div class="card card--glass">
             <strong>Start here</strong>
-            <div>
+            <div class="contact-lines">
               <div><b>Email:</b> <a href="mailto:hello@seabirdlaw.ng">hello@seabirdlaw.ng</a></div>
-              <div><b>Phone:</b> <a href="tel:+2340000000000">+234 000 000 0000</a></div>
+              <div><b>Phone:</b> <a href="tel:+2347041022336">+234 704 102 2336</a></div>
               <div><b>WhatsApp:</b> <a href="https://wa.me/2347041022336" target="_blank" rel="noopener">+234 704 102 2336</a></div>
             </div>
-            <small class="subtle">No attorney-client relationship is formed until engagement is confirmed in writing.</small>
+            <small class="muted">No attorney-client relationship is formed until engagement is confirmed in writing.</small>
+          </div>
+
+          <figure class="hero-media" aria-label="Seabird team photo">
+            <picture>
+              <source srcset="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=60" type="image/jpeg">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=60" alt="Law team collaborating in conference room" fetchpriority="high">
+            </picture>
+          </figure>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ Practice Areas ============ -->
+    <section id="practice" aria-labelledby="practice-title">
+      <div class="container">
+        <div class="section-head fade-in slide-up">
+          <div>
+            <div class="eyebrow">What we do</div>
+            <h2 id="practice-title">Practice Areas</h2>
+          </div>
+          <p>Focused expertise with practical depth. Open a service to learn how we work and what to expect.</p>
+        </div>
+
+        <div class="cards fade-in slide-up">
+          <article class="card">
+            <div class="icon" aria-hidden="true">⚖️</div>
+            <h3><a href="/practice/litigation.html">Litigation &amp; Dispute Resolution</a></h3>
+            <p class="muted">Courts, tribunals and ADR with tactical case management for timely outcomes.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🏢</div>
+            <h3><a href="/practice/corporate.html">Corporate &amp; Commercial</a></h3>
+            <p class="muted">Company setup, governance, contracts, regulatory filings and secretarial support.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🏠</div>
+            <h3><a href="/practice/property.html">Property &amp; Real Estate</a></h3>
+            <p class="muted">Due diligence, conveyance, leases, perfection of title and landlord-tenant advisory.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">👪</div>
+            <h3><a href="/practice/family.html">Family &amp; Succession</a></h3>
+            <p class="muted">Marriage, custody, maintenance, wills, probate and estate administration.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🛂</div>
+            <h3><a href="/practice/immigration.html">Immigration</a></h3>
+            <p class="muted">Visas, work permits, business residency and compliance strategy.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">💡</div>
+            <h3><a href="/practice/ip-tech.html">Technology &amp; IP</a></h3>
+            <p class="muted">Trademarks, NDAs, licensing, data protection and commercialization.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Process ============ -->
+    <section id="process" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-head fade-in slide-up">
+          <div>
+            <div class="eyebrow">Process</div>
+            <h2 id="process-title">How we work</h2>
+          </div>
+          <p>Clarity at each step—so you always know what happens next.</p>
+        </div>
+
+        <div class="cards fade-in slide-up">
+          <article class="card"><span class="badge">Step 1</span><h3>Free case fit check</h3><p class="muted">Tell us your goals. If we’re not the right fit, we’ll try to point you right.</p></article>
+          <article class="card"><span class="badge">Step 2</span><h3>Strategy &amp; fee options</h3><p class="muted">We outline risks, timelines, and fixed or capped pricing where feasible.</p></article>
+          <article class="card"><span class="badge">Step 3</span><h3>Execution &amp; updates</h3><p class="muted">We proceed with clear milestones and same-day updates on key events.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Results ============ -->
+    <section id="results" aria-labelledby="results-title">
+      <div class="container">
+        <div class="section-head fade-in slide-up">
+          <div>
+            <div class="eyebrow">Case Studies</div>
+            <h2 id="results-title">Recent Results</h2>
+          </div>
+          <p><a href="/results/">View all results →</a></p>
+        </div>
+
+        <div class="results fade-in slide-up">
+          <article class="card"><div class="badge">Real Estate</div><h3>Title perfected on tight deadline</h3><p class="muted">Due diligence + land registry perfection completed in 21 days to unlock financing.</p></article>
+          <article class="card"><div class="badge">Commercial</div><h3>Risk-aware vendor contract</h3><p class="muted">Negotiated liability cap and SLA—reduced client exposure by ~70%.</p></article>
+          <article class="card"><div class="badge">Litigation</div><h3>Interlocutory relief granted</h3><p class="muted">Swift application preserved rights pending resolution; matter later settled.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Why Us ============ -->
+    <section id="why" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-head fade-in slide-up">
+          <div>
+            <div class="eyebrow">Advantages</div>
+            <h2 id="why-title">Why Seabird</h2>
+          </div>
+          <p>We combine senior judgement with modern client service, keeping you informed at every step.</p>
+        </div>
+
+        <div class="why fade-in slide-up">
+          <div class="why__item"><div class="tick" aria-hidden="true">✔</div><div><b>Clear strategy</b><br><span class="muted">We map the path early—risks, timelines, costs.</span></div></div>
+          <div class="why__item"><div class="tick" aria-hidden="true">✔</div><div><b>Responsive</b><br><span class="muted">24-hour response on new matters.</span></div></div>
+          <div class="why__item"><div class="tick" aria-hidden="true">✔</div><div><b>Transparent fees</b><br><span class="muted">Fixed or capped where feasible. No surprises.</span></div></div>
+          <div class="why__item"><div class="tick" aria-hidden="true">✔</div><div><b>Business-sensible</b><br><span class="muted">Advice aligned to commercial outcomes.</span></div></div>
+          <div class="why__item"><div class="tick" aria-hidden="true">✔</div><div><b>Ethical &amp; compliant</b><br><span class="muted">Professional standards with diligent process.</span></div></div>
+          <div class="why__item"><div class="tick" aria-hidden="true">✔</div><div><b>Multi-city presence</b><br><span class="muted">Lagos • Abuja • Port Harcourt (by appointment).</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Team ============ -->
+    <section id="team" aria-labelledby="team-title">
+      <div class="container">
+        <div class="section-head fade-in slide-up">
+          <div>
+            <div class="eyebrow">People</div>
+            <h2 id="team-title">Featured Attorneys</h2>
+          </div>
+          <p><a href="/team/">Meet the full team →</a></p>
+        </div>
+
+        <div class="team fade-in slide-up">
+          <article class="card person">
+            <div class="person__head">
+              <div class="avatar"><img src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?w=400&auto=format&fit=crop&q=60" alt="Attorney portrait" loading="lazy"></div>
+              <div><h3>O. Adeyemi</h3><p class="muted">Partner • Litigation &amp; Property • Call ‘12</p></div>
+            </div>
+            <p class="muted">Complex disputes, real estate transactions and enforcement strategy.</p>
+          </article>
+          <article class="card person">
+            <div class="person__head">
+              <div class="avatar"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=400&auto=format&fit=crop&q=60" alt="Attorney portrait" loading="lazy"></div>
+              <div><h3>T. Kalu</h3><p class="muted">Partner • Corporate &amp; Immigration • Call ‘11</p></div>
+            </div>
+            <p class="muted">Cross-border corporate, immigration plans and regulator engagement.</p>
+          </article>
+          <article class="card person">
+            <div class="person__head">
+              <div class="avatar"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&auto=format&fit=crop&q=60" alt="Attorney portrait" loading="lazy"></div>
+              <div><h3>S. Nwachukwu</h3><p class="muted">Counsel • Tech &amp; IP • Call ‘16</p></div>
+            </div>
+            <p class="muted">Technology contracts, trademarks and data protection compliance.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Gallery ============ -->
+    <section id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-head fade-in slide-up">
+          <div>
+            <div class="eyebrow">In pictures</div>
+            <h2 id="gallery-title">Our Offices &amp; Work</h2>
+          </div>
+          <p>Get a feel for where we work and meet clients.</p>
+        </div>
+
+        <div class="scroll-x fade-in slide-up">
+          <div class="card card--media">
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1200&auto=format&fit=crop&q=60" alt="Meeting room" loading="lazy">
+          </div>
+          <div class="card card--media">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&auto=format&fit=crop&q=60" alt="Team collaborating" loading="lazy">
+          </div>
+          <div class="card card--media">
+            <img src="https://images.unsplash.com/photo-1520880867055-1e30d1cb001c?w=1200&auto=format&fit=crop&q=60" alt="Library with law books" loading="lazy">
+          </div>
+          <div class="card card--media">
+            <img src="https://images.unsplash.com/photo-1523246191840-88fcbcb29294?w=1200&auto=format&fit=crop&q=60" alt="City skyline" loading="lazy">
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ================= Practice Areas ================= -->
-  <section id="practice" aria-labelledby="practice-title">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="practice-title">Practice Areas</h2>
-        <p>Focused expertise with practical depth. Click a service to learn more (sub-pages optional).</p>
-      </div>
-
-      <div class="cards">
-        <article class="card">
-          <div class="icon" aria-hidden="true">⚖️</div>
-          <h3>Litigation & Dispute Resolution</h3>
-          <p>Courts, tribunals and ADR with tactical case management for timely outcomes.</p>
-        </article>
-        <article class="card">
-          <div class="icon" aria-hidden="true">🏢</div>
-          <h3>Corporate & Commercial</h3>
-          <p>Company setup, governance, contracts, regulatory filings and secretarial support.</p>
-        </article>
-        <article class="card">
-          <div class="icon" aria-hidden="true">🏠</div>
-          <h3>Property & Real Estate</h3>
-          <p>Due diligence, conveyance, leases, perfection of title and landlord-tenant advisory.</p>
-        </article>
-        <article class="card">
-          <div class="icon" aria-hidden="true">👪</div>
-          <h3>Family & Succession</h3>
-          <p>Marriage, custody, maintenance, wills, probate and estate administration.</p>
-        </article>
-        <article class="card">
-          <div class="icon" aria-hidden="true">🛂</div>
-          <h3>Immigration</h3>
-          <p>Visas, work permits, business residency and compliance strategy.</p>
-        </article>
-        <article class="card">
-          <div class="icon" aria-hidden="true">💡</div>
-          <h3>Technology & IP</h3>
-          <p>Trademarks, NDAs, licensing, data protection and commercialization.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= Why Us ================= -->
-  <section id="why" aria-labelledby="why-title">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="why-title">Why Seabird</h2>
-        <p>We combine senior judgement with modern client service, keeping you informed at every step.</p>
-      </div>
-      <div class="why">
-        <div class="item"><div class="tick" aria-hidden="true">✔</div><div><b>Clear strategy</b><br><span class="subtle">We map the path early—risks, timelines, costs.</span></div></div>
-        <div class="item"><div class="tick" aria-hidden="true">✔</div><div><b>Responsive</b><br><span class="subtle">Same-day updates and realistic expectations.</span></div></div>
-        <div class="item"><div class="tick" aria-hidden="true">✔</div><div><b>Transparent fees</b><br><span class="subtle">Fixed or capped where feasible. No surprises.</span></div></div>
-        <div class="item"><div class="tick" aria-hidden="true">✔</div><div><b>Business-sensible</b><br><span class="subtle">Advice aligned to commercial outcomes.</span></div></div>
-        <div class="item"><div class="tick" aria-hidden="true">✔</div><div><b>Ethical & compliant</b><br><span class="subtle">Professional standards with diligent process.</span></div></div>
-        <div class="item"><div class="tick" aria-hidden="true">✔</div><div><b>Multi-city presence</b><br><span class="subtle">Lagos • Abuja • Port Harcourt (by appointment).</span></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= Attorneys ================= -->
-  <section id="team" aria-labelledby="team-title">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="team-title">Featured Attorneys</h2>
-        <p>Seasoned counsel with matter-specific experience.</p>
-      </div>
-
-      <div class="team">
-        <article class="card person">
-          <div style="display:flex; gap:12px; align-items:center;">
-            <div class="avatar" aria-hidden="true">OA</div>
-            <div>
-              <h3>O. Adeyemi</h3>
-              <p>Partner • Litigation & Property • Call ‘12</p>
-            </div>
+    <!-- ============ Testimonials ============ -->
+    <section id="testimonials" aria-labelledby="testi-title">
+      <div class="container">
+        <div class="section-head fade-in slide-up">
+          <div>
+            <div class="eyebrow">Social Proof</div>
+            <h2 id="testi-title">What Clients Say</h2>
           </div>
-          <p style="margin-top:10px;">Complex disputes, real estate transactions and enforcement strategy.</p>
-        </article>
+          <p><a href="/resources/reviews.html">Read more reviews →</a></p>
+        </div>
 
-        <article class="card person">
-          <div style="display:flex; gap:12px; align-items:center;">
-            <div class="avatar" aria-hidden="true">TK</div>
-            <div>
-              <h3>T. Kalu</h3>
-              <p>Partner • Corporate & Immigration • Call ‘11</p>
-            </div>
+        <div class="testis fade-in slide-up">
+          <blockquote class="quote">“They explained the options, costs and timelines clearly. Case settled faster than expected.”
+            <div class="meta">— SME Founder, Lagos</div>
+          </blockquote>
+          <blockquote class="quote">“Strong drafting and negotiation. We felt protected throughout the transaction.”
+            <div class="meta">— Real Estate Investor</div>
+          </blockquote>
+          <blockquote class="quote">“Responsive team. We always knew what would happen next.”
+            <div class="meta">— Family Law Client</div>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Resources ============ -->
+    <section id="resources" aria-labelledby="res-title">
+      <div class="container">
+        <div class="section-head fade-in slide-up">
+          <div>
+            <div class="eyebrow">Insights</div>
+            <h2 id="res-title">Recent Articles</h2>
           </div>
-          <p style="margin-top:10px;">Cross-border corporate, immigration plans and regulator engagement.</p>
-        </article>
+          <p><a href="/resources/">View all articles →</a></p>
+        </div>
 
-        <article class="card person">
-          <div style="display:flex; gap:12px; align-items:center;">
-            <div class="avatar" aria-hidden="true">SN</div>
-            <div>
-              <h3>S. Nwachukwu</h3>
-              <p>Counsel • Tech & IP • Call ‘16</p>
-            </div>
+        <div class="scroll-x fade-in slide-up">
+          <article class="card">
+            <h3><a href="/resources/due-diligence-checklist.html">Due diligence checklist for property buyers</a></h3>
+            <p class="muted">A practical list you can actually use at the land registry.</p>
+          </article>
+          <article class="card">
+            <h3><a href="/resources/contract-red-flags.html">7 contract red flags to catch early</a></h3>
+            <p class="muted">Scope creep, liability caps, IP ownership and more.</p>
+          </article>
+          <article class="card">
+            <h3><a href="/resources/visa-work-permit-guide.html">Work permit basics for startups</a></h3>
+            <p class="muted">What founders and HR teams should know before hiring.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head fade-in slide-up">
+          <div>
+            <div class="eyebrow">Help</div>
+            <h2 id="faq-title">FAQs</h2>
           </div>
-          <p style="margin-top:10px;">Technology contracts, trademarks and data protection compliance.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+          <p>Short answers to reduce back-and-forth. Expand to read more.</p>
+        </div>
 
-  <!-- ================= Testimonials ================= -->
-  <section aria-labelledby="testi-title">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="testi-title">What Clients Say</h2>
-        <p>Social proof builds trust. Replace with real reviews when available.</p>
+        <div class="faq-list fade-in slide-up">
+          <details>
+            <summary>Do you offer a free initial consultation?</summary>
+            <p>We provide a brief case assessment to confirm fit. Full strategy sessions can be booked at a fixed fee.</p>
+          </details>
+          <details>
+            <summary>How do you charge?</summary>
+            <p>Fixed fees for defined work, capped fees for phases, and hourly where suitable. We agree scope in writing.</p>
+          </details>
+          <details>
+            <summary>Can you work remotely or outside Lagos?</summary>
+            <p>Yes. Matters are handled nationwide; in-person meetings by appointment in Lagos, Abuja and Port Harcourt.</p>
+          </details>
+        </div>
       </div>
-      <div class="testis">
-        <blockquote class="quote">
-          “They explained the options, costs and timelines clearly. Case settled faster than expected.”
-          <div class="meta">— SME Founder, Lagos</div>
-        </blockquote>
-        <blockquote class="quote">
-          “Strong drafting and negotiation. We felt protected throughout the transaction.”
-          <div class="meta">— Real Estate Investor</div>
-        </blockquote>
-        <blockquote class="quote">
-          “Responsive team. We always knew what would happen next.”
-          <div class="meta">— Family Law Client</div>
-        </blockquote>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ================= FAQs ================= -->
-  <section id="faq" aria-labelledby="faq-title">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="faq-title">FAQs</h2>
-        <p>Short answers to reduce back-and-forth. Expand to read more.</p>
-      </div>
-      <details>
-        <summary>Do you offer a free initial consultation?</summary>
-        <p>We provide a brief case assessment to confirm fit. Full strategy sessions can be booked at a fixed fee.</p>
-      </details>
-      <details>
-        <summary>How do you charge?</summary>
-        <p>Fixed fees for defined work, capped fees for phases, and hourly where suitable. We agree scope in writing.</p>
-      </details>
-      <details>
-        <summary>Can you work remotely or outside Lagos?</summary>
-        <p>Yes. Matters are handled nationwide; in-person meetings by appointment in Lagos, Abuja and Port Harcourt.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- ================= Contact ================= -->
-  <section id="contact" aria-labelledby="contact-title">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="contact-title">Contact & Booking</h2>
+    <!-- ============ Contact ============ -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-head fade-in slide-up">
+          <div>
+            <div class="eyebrow">Get in touch</div>
+            <h2 id="contact-title">Contact &amp; Booking</h2>
+          </div>
         <p>Tell us a bit about your matter. We’ll reply with next steps and timelines.</p>
-      </div>
+        </div>
 
-      <div class="contact-grid">
-        <form class="form" id="contactForm" autocomplete="on" novalidate>
-          <div class="field">
-            <label for="name">Full Name</label>
-            <input id="name" name="name" type="text" required placeholder="Jane Doe" />
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required placeholder="you@example.com" />
-          </div>
-          <div class="field">
-            <label for="phone">Phone (optional)</label>
-            <input id="phone" name="phone" type="tel" placeholder="+234 ..." />
-          </div>
-          <div class="field">
-            <label for="category">Matter Type</label>
-            <select id="category" name="category" required>
-              <option value="">Select…</option>
-              <option>Litigation</option>
-              <option>Corporate</option>
-              <option>Property</option>
-              <option>Family</option>
-              <option>Immigration</option>
-              <option>Technology & IP</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="message">Brief</label>
-            <textarea id="message" name="message" required placeholder="Please summarise your matter, goals and timeline."></textarea>
-          </div>
-          <div style="display:flex; gap:.6rem; flex-wrap:wrap;">
-            <button class="btn btn-primary" type="submit">Send Enquiry</button>
-            <a class="btn btn-ghost" href="mailto:hello@seabirdlaw.ng?subject=Consultation%20Request">Email Instead</a>
-            <a class="btn btn-ghost" href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp Chat</a>
-          </div>
-          <p class="subtle" style="margin-top:10px;">By submitting, you agree to our <a href="#!" style="color:var(--brand)">Privacy Policy</a>. This site is protected by reasonable administrative and technical safeguards.</p>
-        </form>
+        <div class="contact-grid">
+          <form class="form fade-in slide-up" id="contactForm" autocomplete="on" novalidate>
+            <div class="field"><label for="name">Full Name</label><input id="name" name="name" type="text" required placeholder="Jane Doe"></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@example.com"></div>
+            <div class="field"><label for="phone">Phone (optional)</label><input id="phone" name="phone" type="tel" placeholder="+234 ..."></div>
+            <div class="field">
+              <label for="category">Matter Type</label>
+              <select id="category" name="category" required>
+                <option value="">Select…</option>
+                <option>Litigation</option>
+                <option>Corporate</option>
+                <option>Property</option>
+                <option>Family</option>
+                <option>Immigration</option>
+                <option>Technology &amp; IP</option>
+              </select>
+            </div>
+            <div class="field"><label for="message">Brief</label><textarea id="message" name="message" required placeholder="Please summarise your matter, goals and timeline."></textarea></div>
 
-        <div class="card">
-          <h3 style="margin:0 0 .4rem;">Offices</h3>
-          <p class="subtle" style="margin:.2rem 0 1rem;">By appointment • Lagos • Abuja • Port Harcourt</p>
-          <div class="quote">
-            <b>Lagos (HQ)</b><br/>Marina/VI axis — directions provided on booking.<br/><br/>
-            <b>Email</b> hello@seabirdlaw.ng<br/>
-            <b>Phone</b> +234 000 000 0000<br/>
+            <div class="form__actions">
+              <button class="btn btn--primary" type="submit">Send Enquiry</button>
+              <a class="btn btn--ghost" href="mailto:hello@seabirdlaw.ng?subject=Consultation%20Request">Email Instead</a>
+              <a class="btn btn--ghost" href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp Chat</a>
+              <span id="formStatus" class="muted" aria-live="polite"></span>
+            </div>
+
+            <p class="muted small">By submitting, you agree to our <a href="/privacy.html">Privacy Policy</a>. This site uses reasonable administrative and technical safeguards.</p>
+          </form>
+
+          <div class="card fade-in slide-up">
+            <h3>Offices</h3>
+            <p class="muted">By appointment • Lagos • Abuja • Port Harcourt</p>
+            <div class="quote">
+              <b>Lagos (HQ)</b><br>Marina/VI axis — directions provided on booking.<br><br>
+              <b>Email</b> hello@seabirdlaw.ng<br>
+              <b>Phone</b> +234 704 102 2336
+            </div>
+            <p class="muted">Map embed can go here.</p>
           </div>
-          <p class="subtle" style="margin:1rem 0 0;">Map embed can go here.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
+
+  <!-- Mobile quick action bar -->
+  <nav class="actionbar" aria-label="Quick actions">
+    <a href="tel:+2347041022336">Call</a>
+    <a href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="https://maps.google.com/?q=Seabird+Law+Firm+Lagos" target="_blank" rel="noopener">Directions</a>
+    <a href="#contact">Book</a>
+  </nav>
 
   <!-- ================= Footer ================= -->
-  <footer role="contentinfo">
-    <div class="container">
-      <div class="footgrid">
-        <div>
-          <div class="brand" style="margin-bottom:.6rem;">
-            <span class="logo" aria-hidden="true"></span>
-            <span class="name">
-              <b>Seabird Law Firm</b>
-              <span>Justice. Integrity. Results.</span>
-            </span>
-          </div>
-          <p class="subtle">Modern, business-sensible counsel across Litigation, Corporate, Property, Family, Immigration and IP/Tech.</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footgrid">
+      <div>
+        <div class="brand brand--footer">
+          <img src="/assets/brand/placeholder-bird.svg" alt="" width="28" height="28" class="brand__logo-img navy" aria-hidden="true">
+          <span class="brand__name">
+            <b>Seabird Law Firm</b>
+            <span>Justice. Integrity. Results.</span>
+          </span>
         </div>
-        <div>
-          <h4 style="margin:.25rem 0 .5rem;">Practice</h4>
-          <nav class="subtle">
-            <a href="#practice">Litigation</a> •
-            <a href="#practice">Corporate</a> •
-            <a href="#practice">Property</a> •
-            <a href="#practice">Family</a> •
-            <a href="#practice">Immigration</a> •
-            <a href="#practice">Tech & IP</a>
-          </nav>
-        </div>
-        <div>
-          <h4 style="margin:.25rem 0 .5rem;">Contact</h4>
-          <p class="subtle">
-            <a href="mailto:hello@seabirdlaw.ng">hello@seabirdlaw.ng</a><br/>
-            <a href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp: +234 704 102 2336</a><br/>
-            Phone: +234 000 000 0000
-          </p>
-        </div>
-        <div>
-          <h4 style="margin:.25rem 0 .5rem;">Links</h4>
-          <p class="subtle">
-            <a href="#!" rel="nofollow">Privacy</a> •
-            <a href="#!" rel="nofollow">Legal Notice</a> •
-            <a href="#!" rel="nofollow">Cookies</a>
-          </p>
-        </div>
+        <p class="muted">Modern, business-sensible counsel across Litigation, Corporate, Property, Family, Immigration and Technology/IP.</p>
       </div>
-      <div class="legal">
-        © <span id="y"></span> Seabird Law Firm. All rights reserved. This website provides general information and does not constitute legal advice.
+
+      <div>
+        <h4>Practice</h4>
+        <nav class="muted">
+          <a href="/practice/litigation.html">Litigation</a> •
+          <a href="/practice/corporate.html">Corporate</a> •
+          <a href="/practice/property.html">Property</a> •
+          <a href="/practice/family.html">Family</a> •
+          <a href="/practice/immigration.html">Immigration</a> •
+          <a href="/practice/ip-tech.html">Tech &amp; IP</a>
+        </nav>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <p class="muted">
+          <a href="mailto:hello@seabirdlaw.ng">hello@seabirdlaw.ng</a><br>
+          <a href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp: +234 704 102 2336</a><br>
+          Phone: +234 704 102 2336
+        </p>
+      </div>
+
+      <div>
+        <h4>Links</h4>
+        <p class="muted">
+          <a href="/privacy.html" rel="nofollow">Privacy</a> •
+          <a href="/legal.html" rel="nofollow">Legal Notice</a> •
+          <a href="/cookies.html" rel="nofollow">Cookies</a>
+        </p>
       </div>
     </div>
+    <div class="container legal">© <span id="y"></span> Seabird Law Firm. All rights reserved. This website provides general information and does not constitute legal advice.</div>
   </footer>
 
-  <!-- ================= Minimal JS ================= -->
+  <!-- ================= Scripts ================= -->
+  <script src="/js/main.js" defer></script>
   <script>
-    // Mobile nav toggle
-    const nav = document.getElementById('nav');
-    const btn = document.getElementById('menuBtn');
-    btn?.addEventListener('click', () => nav.classList.toggle('open'));
-
-    // Active nav underline on scroll (desktop)
-    const sections = ['practice','why','team','faq','contact']
-      .map(id => document.getElementById(id))
-      .filter(Boolean);
-    const links = [...document.querySelectorAll('.nav a.navlink')];
-
-    const byHash = (hash) => links.find(a => a.getAttribute('href') === '#' + hash);
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const id = entry.target.id;
-        const link = byHash(id);
-        if(!link) return;
-        if (entry.isIntersecting){
-          links.forEach(a => a.classList.remove('active'));
-          link.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
-
-    sections.forEach(sec => io.observe(sec));
-
-    // Simple contact form handler (no backend; replace with your endpoint)
-    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const fd = new FormData(e.target);
-      const payload = Object.fromEntries(fd.entries());
-      // TODO: POST to your API or form tool
-      alert('Thanks, ' + (payload.name || 'there') + '. Your enquiry has been received. We will get back to you shortly.');
-      e.target.reset();
-    });
-
-    // Footer year
-    document.getElementById('y').textContent = new Date().getFullYear();
+    // Desktop-only enhancements (optional separate bundle)
+    if (window.matchMedia('(min-width:1024px)').matches) {
+      const s = document.createElement('script');
+      s.src = '/js/desktop.js';
+      s.defer = true;
+      document.body.appendChild(s);
+    }
   </script>
 
-  <!-- ================= JSON-LD ================= -->
+  <!-- JSON-LD: LegalService -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LegalService",
     "name": "Seabird Law Firm",
-    "url": "https://example.com/",
-    "areaServed": ["Lagos", "Abuja", "Port Harcourt", "Nigeria"],
-    "telephone": "+2340000000000",
+    "url": "https://seabird-law-firm.vercel.app/",
+    "areaServed": ["Lagos","Abuja","Port Harcourt","Nigeria"],
+    "telephone": "+2347041022336",
     "email": "hello@seabirdlaw.ng",
+    "address": { "@type":"PostalAddress", "addressCountry":"NG" },
     "sameAs": [],
-    "address": {"@type":"PostalAddress","addressCountry":"NG"},
     "makesOffer": [
-      {"@type":"Offer","name":"Litigation & Dispute Resolution"},
-      {"@type":"Offer","name":"Corporate & Commercial"},
-      {"@type":"Offer","name":"Property & Real Estate"},
-      {"@type":"Offer","name":"Family & Succession"},
-      {"@type":"Offer","name":"Immigration"},
-      {"@type":"Offer","name":"Technology & IP"}
+      { "@type":"Offer", "name":"Litigation & Dispute Resolution" },
+      { "@type":"Offer", "name":"Corporate & Commercial" },
+      { "@type":"Offer", "name":"Property & Real Estate" },
+      { "@type":"Offer", "name":"Family & Succession" },
+      { "@type":"Offer", "name":"Immigration" },
+      { "@type":"Offer", "name":"Technology & IP" }
     ]
   }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Do you offer a free initial consultation?",
+        "acceptedAnswer":{"@type":"Answer","text":"We provide a brief case assessment to confirm fit. Full strategy sessions can be booked at a fixed fee."}
+      },
+      {
+        "@type":"Question",
+        "name":"How do you charge?",
+        "acceptedAnswer":{"@type":"Answer","text":"Fixed fees for defined work, capped fees for phases, and hourly where suitable. We agree scope in writing."}
+      },
+      {
+        "@type":"Question",
+        "name":"Can you work remotely or outside Lagos?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. Matters are handled nationwide; in-person meetings by appointment in Lagos, Abuja and Port Harcourt."}
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>

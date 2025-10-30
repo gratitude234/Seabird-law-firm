@@ -1,0 +1,13 @@
+<!-- /assets/icons/justice-scale.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+     fill="none" stroke="currentColor" stroke-width="1.8"
+     stroke-linecap="round" stroke-linejoin="round">
+  <!-- pillar + crossbar -->
+  <path d="M12 3v13M7 8h10"/>
+  <!-- left chains + pan -->
+  <path d="M7 8L4 13h6L7 8Z" fill="currentColor" stroke="none"/>
+  <!-- right chains + pan -->
+  <path d="M17 8l-3 5h6l-3-5Z" fill="currentColor" stroke="none"/>
+  <!-- base -->
+  <path d="M6 20h12M12 16v4"/>
+</svg>
