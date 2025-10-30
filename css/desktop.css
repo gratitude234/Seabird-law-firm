@@ -25,6 +25,12 @@
     padding: .9rem 0;
   }
 
+  /* Sticky header elevated state (added by JS) */
+  .site-header.is-scrolled {
+    box-shadow: 0 10px 28px rgba(0,0,0,.18);
+    backdrop-filter: saturate(160%) blur(8px);
+  }
+
   /* Larger SVG logo on desktop */
   .brand__logo-img {
     inline-size: 40px;
@@ -52,12 +58,30 @@
     transition: opacity .2s ease;
   }
   .nav__links .navlink:hover { opacity: 1; }
+
+  /* underline on hover/active */
   .nav__links .navlink::after {
     content:""; position:absolute; left:.6rem; right:.6rem; bottom:.2rem;
     height: 0; background:#c9dfff; border-radius:2px; transition:height .2s ease;
   }
   .nav__links .navlink:hover::after,
   .nav__links .navlink.active::after { height: 2px; }
+
+  /* caret button styling (Practice Areas) */
+  .nav__links .navlink.has-caret {
+    display: inline-flex; align-items: center; gap: .5rem;
+  }
+  .nav__links .navlink .caret {
+    inline-size: 9px; block-size: 9px; border: 2px solid currentColor;
+    border-left: 2px solid transparent; border-top: 2px solid transparent;
+    transform: rotate(45deg) translateY(-1px); transform-origin: 50% 50%;
+    opacity: .9; transition: transform .2s ease, opacity .2s ease;
+  }
+  .nav__item--drop.open .navlink .caret,
+  .nav__item--drop:hover .navlink .caret {
+    transform: rotate(225deg) translateY(1px);
+    opacity: 1;
+  }
 
   /* menu button hidden on desktop */
   .menu-btn { display: none; }
@@ -113,7 +137,7 @@
 
   /* Keep SVG logos crisp and a touch larger on desktop */
   .logo-row { gap: 22px; }
-  .logo-row img { height: auto; } /* don't clamp height here */
+  .logo-row img { height: auto; }
   .logo--sm { inline-size: 40px; block-size: 40px; }
   .logo--md { inline-size: 48px; block-size: 48px; }
 

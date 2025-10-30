@@ -31,40 +31,31 @@
   <link rel="preload" href="/css/desktop.css" as="style" media="(min-width:1024px)">
   <link rel="stylesheet" href="/css/desktop.css" media="(min-width:1024px)">
 
-  <!-- PWA (optional) -->
+  <!-- PWA -->
   <link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ================= Header / Nav ================= -->
-  <header class="site-header improved" id="siteHeader">
+  <header class="site-header" id="siteHeader" data-js="header">
     <div class="container nav" role="navigation" aria-label="Main">
-      <!-- Brand -->
       <a class="brand" href="/" aria-label="Seabird Law Firm Home">
-        <span class="brand__logo" aria-hidden="true">
-          <!-- Inline brand mark -->
-          <svg class="brand__logo-img" width="28" height="28" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false">
-            <circle cx="32" cy="32" r="30" class="navy" fill="#0b1b2b"/>
-            <!-- abstract seabird/scale hybrid stroke -->
-            <path d="M32 12v18m-12 8c6 0 12-5 12-10 0 5 6 10 12 10M20 38l-4 12h32l-4-12" class="gold" stroke="#c9a24b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          </svg>
-        </span>
+        <!-- brand mark (SVG file; inherits .navy color via CSS if needed) -->
+        <img src="/assets/brand/placeholder-bird.svg" alt="" width="28" height="28" class="brand__logo-img navy" aria-hidden="true">
         <span class="brand__name">
           <b>Seabird Law Firm</b>
           <span>Justice. Integrity. Results.</span>
         </span>
       </a>
 
-      <!-- Primary links -->
       <ul class="nav__links" role="list">
         <li class="nav__item nav__item--drop" id="dropPractice">
-          <!-- Button (not link) for accessible dropdown -->
-          <button class="navlink has-caret" type="button"
-                  aria-haspopup="true" aria-expanded="false" aria-controls="practicePanel">
+          <!-- caret is a separate element for crisp rotation -->
+          <button class="navlink has-caret" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="practiceMenu">
             Practice Areas <span class="caret" aria-hidden="true"></span>
           </button>
-          <div class="drop-panel" id="practicePanel" role="menu" aria-label="Practice Areas">
+          <div class="drop-panel" id="practiceMenu" role="menu" aria-label="Practice Areas">
             <a class="drop-item" href="/practice/litigation.html">⚖️ Litigation &amp; Dispute Resolution<br><span class="muted">Courts, tribunals &amp; ADR.</span></a>
             <a class="drop-item" href="/practice/corporate.html">🏢 Corporate &amp; Commercial<br><span class="muted">Company, contracts, governance.</span></a>
             <a class="drop-item" href="/practice/property.html">🏠 Property &amp; Real Estate<br><span class="muted">Due diligence, conveyance, title.</span></a>
@@ -80,7 +71,6 @@
         <li class="nav__item"><a class="navlink" href="#contact">Contact</a></li>
       </ul>
 
-      <!-- CTAs + mobile menu -->
       <div class="nav__cta">
         <a class="btn btn--ghost hide-on-mobile" href="tel:+2347041022336">Call</a>
         <a class="btn btn--ghost hide-on-mobile" href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp</a>
@@ -93,19 +83,18 @@
     </div>
   </header>
 
-  <!-- ================= Mobile slide-in navigation ================= -->
+  <!-- Mobile slide-in navigation -->
   <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation" aria-hidden="true">
-    <!-- mini panel header with close -->
+    <!-- mini header inside panel -->
     <div class="mobile-panel__head">
-      <span class="brand-mini">
-        <svg width="22" height="22" viewBox="0 0 64 64" aria-hidden="true">
-          <circle cx="32" cy="32" r="30" fill="#0b1b2b"/>
-          <path d="M32 12v18m-12 8c6 0 12-5 12-10 0 5 6 10 12 10M20 38l-4 12h32l-4-12"
-                stroke="#c9a24b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <div class="brand-mini">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+          <path d="M6 13c3-1 5-4 8-6 1 3 2 6 4 9-3 1-7 1-12-3z" fill="currentColor"/>
         </svg>
-        <strong>Menu</strong>
-      </span>
-      <button class="close-btn" id="mobileClose" aria-label="Close menu">✕</button>
+        <span>Menu</span>
+      </div>
+      <button class="close-btn" id="panelClose" aria-label="Close menu">✕</button>
     </div>
 
     <a href="#practice">Practice Areas</a>
@@ -115,7 +104,6 @@
     <a href="/resources/">Resources</a>
     <a href="#faq">FAQs</a>
     <a href="#contact">Contact</a>
-
     <div class="mobile-panel__group">
       <a href="tel:+2347041022336">Call +234 704 102 2336</a>
       <a href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp Chat</a>
@@ -150,7 +138,6 @@
             <span>📍 Lagos • Abuja • PH (by appt.)</span>
           </div>
 
-          <!-- Local SVGs instead of external -->
           <div class="logo-row" aria-label="Affiliations">
             <img src="/assets/icons/justice-scale.svg" alt="Justice scale icon" class="logo logo--sm gold" width="36" height="36" loading="lazy">
             <img src="/assets/brand/placeholder-bird.svg" alt="Seabird placeholder logo" class="logo logo--md navy" width="44" height="44" loading="lazy">
@@ -173,7 +160,8 @@
           <figure class="hero-media" aria-label="Seabird team photo">
             <picture>
               <source srcset="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=60" type="image/jpeg">
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=60" alt="Law team collaborating in conference room" fetchpriority="high">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=60"
+                   alt="Law team collaborating in conference room" fetchpriority="high">
             </picture>
           </figure>
         </aside>
@@ -440,7 +428,7 @@
             <div class="eyebrow">Get in touch</div>
             <h2 id="contact-title">Contact &amp; Booking</h2>
           </div>
-        <p>Tell us a bit about your matter. We’ll reply with next steps and timelines.</p>
+          <p>Tell us a bit about your matter. We’ll reply with next steps and timelines.</p>
         </div>
 
         <div class="contact-grid">
@@ -603,7 +591,6 @@
   </script>
 
   <script>
-    // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>

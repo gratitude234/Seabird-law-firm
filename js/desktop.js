@@ -1,49 +1,29 @@
 /* =========================================================
    Seabird Law — desktop.js (≥1024px ONLY)
-   - Hero parallax (subtle)
-   - Sticky header elevation on scroll
-   - Refined scroll-spy (debounced)
-   - Card micro-interactions (tilt on hover)
+   - Subtle hero parallax
+   - Refined scroll spy (RAF)
+   - Card tilt micro-interactions
    - Back-to-top helper
    ========================================================= */
 
 (() => {
   const MQ = window.matchMedia('(min-width:1024px)');
-  if (!MQ.matches) return; // safety
+  if (!MQ.matches) return;
 
   const $  = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
 
   /* ------------------------------
-     1) Sticky header elevation
+     1) Subtle hero parallax
   ------------------------------ */
-  const header = $('#siteHeader');
-  const ELEVATE_AT = 8; // px
-  function setHeaderElevated() {
-    if (!header) return;
-    if (window.scrollY > ELEVATE_AT) {
-      header.style.boxShadow = '0 8px 28px rgba(0,0,0,.18)';
-      header.style.backdropFilter = 'saturate(160%) blur(8px)';
-    } else {
-      header.style.boxShadow = 'none';
-      header.style.backdropFilter = 'saturate(140%) blur(6px)';
-    }
-  }
-  setHeaderElevated();
-  window.addEventListener('scroll', setHeaderElevated, { passive: true });
-
-  /* ------------------------------
-     2) Hero parallax (very subtle)
-  ------------------------------ */
-  const hero = $('.hero');
-  const bg   = $('.hero__bg');
+  const hero  = $('.hero');
+  const bg    = $('.hero__bg');
   const media = $('.hero-media img');
 
   function parallax() {
     if (!hero) return;
     const rect = hero.getBoundingClientRect();
     const visible = Math.max(0, Math.min(1, 1 - (rect.top / rect.height)));
-    // Move background and scale image slightly
     if (bg)    bg.style.transform    = `translateY(${visible * 14}px)`;
     if (media) media.style.transform = `scale(${1 + visible * 0.02})`;
   }
@@ -51,7 +31,7 @@
   window.addEventListener('scroll', parallax, { passive: true });
 
   /* ------------------------------
-     3) Refined scroll-spy timing
+     2) Refined scroll spy
   ------------------------------ */
   const ids   = ['practice','process','results','why','team','resources','faq','contact'];
   const links = $$('.nav__links .navlink');
@@ -83,8 +63,7 @@
   onScrollSpy();
 
   /* ------------------------------
-     4) Card micro-interactions
-        (tilt toward cursor, gentle)
+     3) Card micro-interactions
   ------------------------------ */
   const tiltCards = $$('.card, .why__item, .quote');
   const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
@@ -97,9 +76,9 @@
       const r = card.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width;
       const y = (e.clientY - r.top) / r.height;
-      const rx = clamp((0.5 - y) * 6, -6, 6);  // rotate X
-      const ry = clamp((x - 0.5) * 8, -8, 8);  // rotate Y
-      const dz = 6;                             // lift
+      const rx = clamp((0.5 - y) * 6, -6, 6);
+      const ry = clamp((x - 0.5) * 8, -8, 8);
+      const dz = 6;
       if (raf) cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         card.style.transform = `translateY(-6px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(${dz}px)`;
@@ -117,7 +96,7 @@
   });
 
   /* ------------------------------
-     5) Back-to-top helper
+     4) Back-to-top helper
   ------------------------------ */
   const btn = document.createElement('button');
   btn.type = 'button';
@@ -143,5 +122,4 @@
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-
 })();
