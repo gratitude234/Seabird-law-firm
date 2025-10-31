@@ -238,6 +238,7 @@ small.small { font-size: .86rem; }
   transition: transform .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease);
   box-shadow: 0 4px 12px rgba(0,0,0,.04);
   min-height: 44px; /* thumb target */
+  white-space: nowrap; /* prevent breaking long labels */
 }
 .btn--primary { color: #fff; background: linear-gradient(135deg, var(--brand), var(--brand-600)); }
 .btn--primary:hover { transform: translateY(-1px); box-shadow: 0 10px 25px rgba(2,45,90,.28); }

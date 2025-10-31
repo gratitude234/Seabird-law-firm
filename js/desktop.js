@@ -2,8 +2,10 @@
    Seabird Law — desktop.js (≥1024px ONLY)
    - Subtle hero parallax
    - Refined scroll spy (RAF)
+   - Dropdown hover-intent with close delay + outside click
    - Card tilt micro-interactions
    - Back-to-top helper
+   - Slim sticky CTA bar (show on scroll, hide near contact)
    ========================================================= */
 
 (() => {
@@ -63,7 +65,65 @@
   onScrollSpy();
 
   /* ------------------------------
-     3) Card micro-interactions
+     3) Dropdown hover-intent + small close delay (NEW)
+  ------------------------------ */
+  (function () {
+    const dropWrap = document.querySelector('.nav__item--drop');
+    if (!dropWrap) return;
+
+    const trigger = dropWrap.querySelector('.navlink.has-caret');
+    const panel   = dropWrap.querySelector('.drop-panel');
+
+    let closeTimer = null;
+    const OPEN_CLASS = 'open';
+
+    const open = () => {
+      clearTimeout(closeTimer);
+      dropWrap.classList.add(OPEN_CLASS);
+      if (trigger) trigger.setAttribute('aria-expanded', 'true');
+    };
+    const close = () => {
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(() => {
+        dropWrap.classList.remove(OPEN_CLASS);
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      }, 160); // grace period to move cursor from trigger into panel
+    };
+
+    // Mouse: open on enter, close on leave (with delay)
+    [dropWrap, panel].forEach(el => {
+      if (!el) return;
+      el.addEventListener('mouseenter', open);
+      el.addEventListener('mouseleave', close);
+    });
+
+    // Outside click closes
+    document.addEventListener('pointerdown', (e) => {
+      if (!dropWrap.contains(e.target)) close();
+    });
+
+    // Keyboard: open on focus, close on Escape / blur
+    if (trigger) {
+      trigger.setAttribute('aria-haspopup', 'true');
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.addEventListener('focus', open);
+      trigger.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') { e.stopPropagation(); dropWrap.classList.remove(OPEN_CLASS); trigger.focus(); }
+        if ((e.key === 'Enter' || e.key === ' ') && panel) { e.preventDefault(); open(); panel.querySelector('a')?.focus(); }
+      });
+    }
+    if (panel) {
+      panel.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          dropWrap.classList.remove(OPEN_CLASS);
+          trigger && trigger.focus();
+        }
+      });
+    }
+  })();
+
+  /* ------------------------------
+     4) Card micro-interactions
   ------------------------------ */
   const tiltCards = $$('.card, .why__item, .quote');
   const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
@@ -96,7 +156,7 @@
   });
 
   /* ------------------------------
-     4) Back-to-top helper
+     5) Back-to-top helper
   ------------------------------ */
   const btn = document.createElement('button');
   btn.type = 'button';
@@ -122,4 +182,47 @@
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  /* ------------------------------
+     6) Slim sticky CTA bar (desktop only)
+  ------------------------------ */
+  (function(){
+    const bar = document.querySelector('.cta-bar-desktop');
+    if (!bar) return;
+
+    const contact = document.getElementById('contact');
+    const header  = document.getElementById('siteHeader');
+
+    const showAt = window.innerHeight * 0.35; // show after ~35% scroll
+    let raf = null;
+
+    const update = () => {
+      const scrolled = window.scrollY > showAt;
+      if (scrolled) {
+        bar.hidden = false;
+      } else {
+        bar.hidden = true;
+      }
+      // hide if contact section is in (lower) view to avoid double CTAs
+      if (contact) {
+        const r = contact.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.7) bar.hidden = true;
+      }
+      // add header elevated state
+      if (header) {
+        if (window.scrollY > 8) header.classList.add('is-scrolled');
+        else header.classList.remove('is-scrolled');
+      }
+      raf = null;
+    };
+
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(update);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive:true });
+    window.addEventListener('resize', onScroll,  { passive:true });
+    update();
+  })();
 })();
