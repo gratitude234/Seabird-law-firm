@@ -325,6 +325,24 @@ section { padding: 56px 0; }
 .section-head p { margin: 0; color: var(--muted); max-width: 70ch; }
 .eyebrow { font-weight: 800; letter-spacing: .14em; text-transform: uppercase; font-size: .72rem; color: #6a7c90; }
 
+/* Micro CTAs (NEW – mirror of desktop but sized for mobile) */
+.section-cta{
+  width: 100%;
+  margin-top: 8px;
+  color:#5f7797;
+  font-weight: 800;
+  font-size: .92rem;
+}
+.section-cta.right{ text-align:right; }
+.section-cta .sep{ margin: 0 .45rem; opacity:.5; }
+.link-cta{
+  color: var(--brand);
+  text-decoration: none;
+  border-bottom: 1px solid #b9d0ff88;
+  padding-bottom: 2px;
+}
+.link-cta:hover{ border-color:#8bb5ff; }
+
 /* Card grids (stacked on mobile) */
 .cards { display: grid; grid-template-columns: 1fr; gap: 12px; }
 .icon {
@@ -440,6 +458,33 @@ section { padding: 56px 0; }
 @media (max-width: 340px) {
   .actions .btn { padding-inline: .9rem; }
   .brand__name > b { font-size: .98rem; }
+}
+
+/* ------------------------------
+   11) VISIBILITY FIX — strong links on light sections
+------------------------------ */
+.section-cta,
+.section-cta a,
+.section-foot a {
+  color: #0b3a73 !important;        /* strong brand-dark */
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  opacity: 1 !important;
+}
+.section-cta .sep { color: #7fa2c7; opacity: 1; }
+.section-cta .link-cta { border-bottom-color: #7fa2c7 !important; }
+
+.section-head p a,
+.card p a,
+.quote a {
+  color: #0b3a73 !important;
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  opacity: 1 !important;
 }
 
 /* End of core.css */
