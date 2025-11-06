@@ -304,3 +304,21 @@
 
 
 
+/* ===== Desktop overrides that neutralize mobile-only styles ===== */
+@media (min-width:1024px){
+  /* remove mobile actionbar spacing on desktop */
+  body { padding-bottom: 0 !important; }
+
+  /* footer bottom padding returns to normal (no actionbar on desktop) */
+  .site-footer { padding-bottom: 32px !important; }
+
+  /* hide mobile-only UI hard */
+  .actionbar { display: none !important; }
+  .mobile-panel, .overlay { display: none !important; }
+
+  /* show header CTAs that are hidden on mobile */
+  .hide-on-mobile { display: inline-flex !important; }
+}
+
+
+
