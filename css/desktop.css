@@ -5,6 +5,12 @@
 
 @media (min-width: 1024px) {
 
+  /* -------- Global desktop guardrails -------- */
+  body { padding-bottom: 0 !important; } /* undo mobile actionbar padding */
+  .actionbar { display: none !important; }
+  .mobile-panel, .overlay { display: none !important; visibility: hidden !important; }
+  .hide-on-mobile { display: inline-flex !important; }
+
   /* -------- Layout & Typography scale -------- */
   .container { max-width: 1200px; padding-inline: 24px; }
   section { padding: 72px 0; }
@@ -14,22 +20,20 @@
     letter-spacing: .2px;
   }
 
-  /* -------- Hide mobile-only UI -------- */
-  .actionbar { display: none !important; }
-  .mobile-panel, .overlay { display: none !important; }
-  .hide-on-mobile { display: inline-flex !important; }
-
   /* -------- Header / Navigation -------- */
+  .site-header {
+    background: linear-gradient(180deg, rgba(11,27,43,.90), rgba(11,27,43,.78));
+    backdrop-filter: saturate(140%) blur(8px);
+  }
+  .site-header.is-scrolled {
+    box-shadow: 0 10px 28px rgba(0,0,0,.18);
+    backdrop-filter: saturate(160%) blur(8px);
+  }
+
   .nav {
     gap: 1rem;
     padding: .75rem 0;      /* slimmer desktop header */
     flex-wrap: nowrap;      /* keep on one line */
-  }
-
-  /* Sticky header elevated state (added by JS) */
-  .site-header.is-scrolled {
-    box-shadow: 0 10px 28px rgba(0,0,0,.18);
-    backdrop-filter: saturate(160%) blur(8px);
   }
 
   /* Larger SVG logo on desktop */
@@ -40,9 +44,9 @@
     filter: drop-shadow(0 4px 12px rgba(0,0,0,.22));
   }
 
-  /* show primary links */
+  /* Primary links visible */
   .nav__links {
-    display: flex;
+    display: flex !important;
     align-items: center;
     gap: .6rem;
     margin-left: 12px;
@@ -89,9 +93,9 @@
   }
 
   /* menu button hidden on desktop */
-  .menu-btn { display: none; }
+  .menu-btn { display: none !important; }
 
-  /* -------- Mega menu (Practice Areas) — improved -------- */
+  /* -------- Mega menu (Practice Areas) -------- */
   .nav__item--drop { position: relative; }
   .nav__item--drop::after{
     content:"";
@@ -169,7 +173,7 @@
   }
 
   .hero__content h1 {
-    font-size: clamp(2.6rem, 4.2vw, 3.4rem);
+    font-size: clamp(2.6rem, 4.2vw, 3.4rem) !important;
     line-height: 1.18;
     max-width: 18ch;
   }
@@ -257,7 +261,7 @@
 
   /* ===== Desktop slim sticky CTA bar ===== */
   .cta-bar-desktop{
-    position: fixed; left:0; right:0; bottom:18px; zIndex:70;
+    position: fixed; left:0; right:0; bottom:18px; z-index:70;
     pointer-events:none; /* only children clickable */
   }
   .cta-bar__row{
@@ -299,4 +303,8 @@
   .section-head p a,
   .card p a,
   .quote a { color: #0b3a73 !important; opacity: 1 !important; }
+
+  /* Safety: any mobile menu animation refs should be inert on desktop */
+  .menu-scroll .menu-item,
+  .menu-accordion { opacity: 1; transform: none; animation: none; }
 }
