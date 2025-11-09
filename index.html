@@ -47,7 +47,8 @@
         </span>
         <span class="brand__name">
           <b>Seabird Law Firm</b>
-          <span>Justice. Integrity. Results.</span>
+          <!-- tag line given its own class so it can be hidden on small screens via CSS -->
+          <span class="tagline">Justice. Integrity. Results.</span>
         </span>
       </a>
 
@@ -55,9 +56,15 @@
       <nav class="nav__links" aria-label="Primary">
         <a class="navlink" href="#practice">Practice Areas</a>
         <a class="navlink" href="#why">Why Us</a>
-        <a class="navlink" href="/team/">Team</a>
-        <a class="navlink" href="/results/">Results</a>
-        <a class="navlink" href="/resources/">Resources</a>
+        <!-- Consolidated “More” dropdown to reduce clutter on wide screens -->
+        <details class="nav-more">
+          <summary class="navlink">More</summary>
+          <div class="nav-more__body">
+            <a class="navlink navlink--sub" href="/team/">Team</a>
+            <a class="navlink navlink--sub" href="/results/">Results</a>
+            <a class="navlink navlink--sub" href="/resources/">Resources</a>
+          </div>
+        </details>
         <a class="navlink" href="#faq">FAQs</a>
         <a class="navlink" href="#contact">Contact</a>
       </nav>
@@ -105,9 +112,18 @@
       </details>
 
       <a class="menu-item" href="#why">Why Us</a>
-      <a class="menu-item" href="#team">Team</a>
-      <a class="menu-item" href="#results">Results</a>
-      <a class="menu-item" href="/resources/">Resources</a>
+      <!-- Consolidated “More” accordion to group lesser-used links -->
+      <details class="menu-accordion" id="menuMore">
+        <summary class="menu-item">
+          <span>More</span>
+          <span class="chev" aria-hidden="true"></span>
+        </summary>
+        <div class="menu-accordion__body">
+          <a class="menu-link" href="#team">Team</a>
+          <a class="menu-link" href="#results">Results</a>
+          <a class="menu-link" href="/resources/">Resources</a>
+        </div>
+      </details>
       <a class="menu-item" href="#faq">FAQs</a>
       <a class="menu-item" href="#contact">Contact</a>
 
