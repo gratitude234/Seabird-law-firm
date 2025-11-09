@@ -577,3 +577,19 @@ section{ padding:56px 0; }
   text-underline-offset:3px;
   opacity:1 !important;
 }
+
+/* =========================================================
+   Custom enhancements
+   - Improve accessibility and interactivity based on UX recommendations
+   ========================================================= */
+
+/* Make all cards indicate interactivity on hover */
+.card:hover {
+  cursor: pointer;
+}
+
+/* Improve contrast for links inside glass cards (hero contact card) */
+.card--glass .contact-lines a {
+  color: #ffffff;
+  text-decoration: underline;
+}
