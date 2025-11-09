@@ -1,4 +1,3 @@
-
 /* =========================================================
    Seabird Law — desktop.css (≥1024px)
    Enhancements ONLY; mobile lives in core.css
@@ -258,7 +257,7 @@
 
   /* ===== Desktop slim sticky CTA bar ===== */
   .cta-bar-desktop{
-    position: fixed; left:0; right:0; bottom:18px; zIndex:70;
+    position: fixed; left:0; right:0; bottom:18px; z-index:70;
     pointer-events:none; /* only children clickable */
   }
   .cta-bar__row{
@@ -302,8 +301,6 @@
   .quote a { color: #0b3a73 !important; opacity: 1 !important; }
 }
 
-
-
 /* ===== Desktop overrides that neutralize mobile-only styles ===== */
 @media (min-width:1024px){
   /* remove mobile actionbar spacing on desktop */
@@ -320,5 +317,30 @@
   .hide-on-mobile { display: inline-flex !important; }
 }
 
+/* =========================================================
+   Custom desktop enhancements
+   - Dismiss button for sticky CTA bar
+   - Improved contrast for glass card links
+   ========================================================= */
 
+@media (min-width: 1024px) {
+  /* style for the close/dismiss button in sticky CTA bar */
+  .cta-bar__close {
+    background: transparent;
+    border: none;
+    color: #eaf2ff;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 .5rem;
+  }
+  .cta-bar__close:hover {
+    color: #ffffff;
+  }
 
+  /* improve contrast for links inside glass cards */
+  .card--glass .contact-lines a {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+}
