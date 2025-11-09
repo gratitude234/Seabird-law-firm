@@ -178,7 +178,7 @@ small.small{ font-size:.86rem; }
   /* room for sticky actions */
   padding:calc(60px + env(safe-area-inset-top)) 14px
           calc(108px + env(safe-area-inset-bottom));
-  overflow:auto; z-index:55;
+  overflow:auto; z-index:70; /* ↑ above global .actionbar (60) */
 
   transition:transform .28s cubic-bezier(.2,.8,.4,1);
   -webkit-overflow-scrolling:touch;
@@ -269,7 +269,7 @@ small.small{ font-size:.86rem; }
 
 /* Sticky bottom actions (3 buttons) */
 .menu-actions{
-  position:fixed; left:0; right:0; bottom:0; z-index:56;
+  position:fixed; left:0; right:0; bottom:0; z-index:76; /* ↑ above overlay & actionbar */
   display:grid; grid-template-columns:repeat(3,1fr); gap:10px;
   padding:10px; padding-bottom:calc(10px + env(safe-area-inset-bottom));
   background:linear-gradient(180deg,#0e2845db,#0e2845f7);
@@ -474,7 +474,7 @@ section{ padding:56px 0; }
   border-left:4px solid var(--brand);
   padding:14px 16px; background:#fff; border-radius:12px; box-shadow:var(--shadow);
 }
-.quote .meta{ margin-top:10px; color:var(--muted); font-size:.9rem; }
+.quote .meta{ margin-top:10px; color:#muted; font-size:.9rem; }
 
 /* FAQ */
 .faq-list details{
@@ -509,11 +509,21 @@ section{ padding:56px 0; }
   background:#0b1b2b; border-top:1px solid rgba(255,255,255,.1);
   display:grid; grid-template-columns:repeat(3,1fr); gap:6px; padding:8px;
   padding-bottom:calc(8px + env(safe-area-inset-bottom));
+  transition: opacity .2s var(--ease), transform .2s var(--ease); /* for smooth hide when menu opens */
 }
 .actionbar a{
   color:#e8f0ff; text-decoration:none; font-weight:800; font-size:.9rem;
   background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.15);
   padding:.6rem .4rem; border-radius:12px; text-align:center;
+}
+
+/* Hide global actionbar while the mobile menu is open */
+.site-header.open ~ .actionbar,
+.mobile-panel[aria-hidden="false"] ~ .actionbar,
+#menuOverlay.show ~ .actionbar{
+  opacity:0;
+  transform:translateY(100%);
+  pointer-events:none;
 }
 
 /* ------------------------------
@@ -584,12 +594,10 @@ section{ padding:56px 0; }
    ========================================================= */
 
 /* Make all cards indicate interactivity on hover */
-.card:hover {
-  cursor: pointer;
-}
+.card:hover { cursor: pointer; }
 
 /* Improve contrast for links inside glass cards (hero contact card) */
 .card--glass .contact-lines a {
-  color: #ffffff;
-  text-decoration: underline;
+  color:#ffffff;
+  text-decoration:underline;
 }
