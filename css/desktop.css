@@ -50,7 +50,7 @@
     min-width: 0;           /* allows flex shrink properly */
   }
   .nav__links .navlink {
-    color: #e8f0ff;
+    color: var(--tint);
     font-weight: 700;
     font-size: .98rem;
     opacity: .92;
@@ -66,7 +66,7 @@
   /* underline on hover/active */
   .nav__links .navlink::after {
     content:""; position:absolute; left:.6rem; right:.6rem; bottom:.2rem;
-    height: 0; background:#c9dfff; border-radius:2px; transition:height .2s ease;
+    height: 0; background:rgba(201,162,75,.8); border-radius:2px; transition:height .2s ease;
   }
   .nav__links .navlink:hover::after,
   .nav__links .navlink.active::after,
@@ -104,9 +104,9 @@
     left: 0;
     top: 100%;
     width: min(820px, 92vw);
-    background: #102b49;
-    color: #e8f0ff;
-    border: 1px solid rgba(255,255,255,.10);
+    background: linear-gradient(180deg, rgba(10,26,27,.96), rgba(14,63,51,.9));
+    color: var(--tint);
+    border: 1px solid rgba(236,245,241,.16);
     border-radius: 14px;
     box-shadow: 0 24px 48px rgba(0,0,0,.32);
     padding: 14px;
@@ -127,16 +127,16 @@
     display: block;
     padding: 12px 12px;
     border-radius: 12px;
-    color: #e8f0ff;
+    color: var(--tint);
     text-decoration: none;
     line-height: 1.35;
     background: transparent;
     transition: background .18s ease, transform .18s ease;
   }
-  .drop-item:hover { background: rgba(255,255,255,.07); transform: translateY(-1px); }
+  .drop-item:hover { background: rgba(236,245,241,.08); transform: translateY(-1px); }
   .drop-item b{ display:block; font-weight:800; letter-spacing:.2px; margin-bottom:2px; }
-  .drop-item small{ display:block; color:#c7dbff; opacity:.9; }
-  .drop-item:focus-visible { outline: 2px solid #C9A227; outline-offset: 2px; }
+  .drop-item small{ display:block; color:#cfddd5; opacity:.9; }
+  .drop-item:focus-visible { outline: 2px solid rgba(201,162,75,.85); outline-offset: 2px; }
 
   /* -------- HEADER CTA NORMALIZATION -------- */
   .nav__cta { display:flex; align-items:center; gap:10px; margin-left:auto; flex-wrap: nowrap; }
@@ -146,15 +146,15 @@
     white-space: nowrap;
   }
   .nav__cta .btn.btn--ghost {
-    background: #eaf1ff; color: #0c3a73; border-color: #d6e6ff;
+    background: #e6f1ec; color: #0b4f3f; border-color: #c8ded3;
   }
-  .nav__cta .btn.btn--ghost:hover { background: #dfe8ff; }
+  .nav__cta .btn.btn--ghost:hover { background: #dbe8e1; }
   .nav__cta .btn--ghost.hide-on-mobile{ display: none !important; }
 
   /* Optional: tiny styled dot separators */
   .nav__links .dot{
     display:inline-block; width:4px; height:4px; border-radius:999px;
-    background:#dfe8ff50; transform:translateY(2px); margin:0 6px;
+    background:rgba(201,162,75,.45); transform:translateY(2px); margin:0 6px;
   }
 
   /* -------- Hero (two-column, premium) -------- */
@@ -202,7 +202,7 @@
   }
   .card:hover, .why__item:hover, .quote:hover {
     transform: translateY(-6px);
-    box-shadow: 0 15px 35px rgba(12,32,62,.12);
+    box-shadow: 0 15px 35px rgba(11,79,63,.14);
   }
 
   /* -------- Horizontal media scroller → desktop gallery grid -------- */
@@ -245,15 +245,15 @@
 
   /* ===== MICRO-CTAs (used below sections) ===== */
   .section-cta{
-    margin-top: 12px; color:#cfe0ff; font-weight:700;
+    margin-top: 12px; color:#cfded6; font-weight:700;
   }
   .section-cta.right{ text-align:right; }
   .section-cta .sep{ margin: 0 .5rem; opacity:.6; }
   .link-cta{
-    color:#e8f0ff; text-decoration:none;
-    border-bottom: 1px solid #cfe0ff55; padding-bottom: 2px;
+    color:var(--tint); text-decoration:none;
+    border-bottom: 1px solid rgba(201,162,75,.6); padding-bottom: 2px;
   }
-  .link-cta:hover{ border-color:#cfe0ff; }
+  .link-cta:hover{ border-color:rgba(201,162,75,.85); }
 
   /* ===== Desktop slim sticky CTA bar ===== */
   .cta-bar-desktop{
@@ -263,9 +263,9 @@
   .cta-bar__row{
     display:flex; align-items:center; justify-content:space-between;
     gap: 12px; padding: 10px 14px;
-    background: linear-gradient(135deg,#0d2950,#0a3a78);
-    color:#eaf2ff; border:1px solid #ffffff22;
-    border-radius: 14px; box-shadow: 0 18px 42px rgba(2,45,90,.28);
+    background: linear-gradient(135deg,#0b4f3f,#0e3f33);
+    color:var(--tint); border:1px solid rgba(236,245,241,.2);
+    border-radius: 14px; box-shadow: 0 18px 42px rgba(11,79,63,.32);
     pointer-events:auto;
   }
   .cta-bar__line{ font-weight:800; letter-spacing:.2px; }
@@ -273,32 +273,32 @@
 
   /* ===== EXTRA POLISH ===== */
   .nav__cta .btn { height: 40px; line-height: 40px; padding: 0 14px; }
-  .nav__links .dot{ width:3.5px; height:3.5px; background:#dfe8ff40; transform:translateY(1.5px); }
+  .nav__links .dot{ width:3.5px; height:3.5px; background:rgba(201,162,75,.45); transform:translateY(1.5px); }
   .nav__links .navlink:hover{ text-decoration: underline; text-underline-offset:6px; }
-  .nav__links .navlink[aria-current="page"]::after{ height:2px; background:#C9A227; }
+  .nav__links .navlink[aria-current="page"]::after{ height:2px; background:var(--accent); }
 }
 
 /* ------------------------------
    VISIBILITY FIX — strong links on light sections (desktop too)
 ------------------------------ */
 @media (min-width: 1024px) {
-  .section-cta { color: #3a5678 !important; }
+  .section-cta { color: #2f4c41 !important; }
   .section-cta a,
   .section-foot a {
-    color: #0b3a73 !important;
+    color: #0b4f3f !important;
     font-weight: 800;
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
     opacity: 1 !important;
   }
-  .section-cta .sep { color: #7fa2c7 !important; opacity: 1; }
-  .section-cta .link-cta { border-bottom-color: #7fa2c7 !important; }
+  .section-cta .sep { color: rgba(201,162,75,.8) !important; opacity: 1; }
+  .section-cta .link-cta { border-bottom-color: rgba(201,162,75,.8) !important; }
 
   /* Ensure generic inline links stay dark on light rows */
   .section-head p a,
   .card p a,
-  .quote a { color: #0b3a73 !important; opacity: 1 !important; }
+  .quote a { color: #0b4f3f !important; opacity: 1 !important; }
 }
 
 /* ===== Desktop overrides that neutralize mobile-only styles ===== */
@@ -328,7 +328,7 @@
   .cta-bar__close {
     background: transparent;
     border: none;
-    color: #eaf2ff;
+    color: var(--tint);
     font-size: 1.4rem;
     line-height: 1;
     cursor: pointer;
