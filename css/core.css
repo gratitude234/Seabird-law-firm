@@ -118,8 +118,24 @@ small.small{ font-size:.86rem; }
 
 /* Brand */
 .brand{ display:flex; gap:.75rem; align-items:center; text-decoration:none; color:var(--tint); }
-.brand__logo{ display:inline-grid; place-items:center; }
-.brand__logo-img{ display:inline-block; vertical-align:middle; margin-right:.55rem; }
+.brand__logo{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-inline-size:36px;
+}
+.brand__logo-img{
+  display:inline-block;
+  vertical-align:middle;
+  margin-right:.55rem;
+  height:36px;
+  width:auto;
+  object-fit:contain;
+}
+.brand--footer .brand__logo-img{
+  height:28px;
+  margin-right:.45rem;
+}
 
 /* Keep name styling the same */
 .brand__name{ display:flex; flex-direction:column; line-height:1.05; }

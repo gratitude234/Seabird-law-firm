@@ -34,10 +34,14 @@
 
   /* Larger SVG logo on desktop */
   .brand__logo-img {
-    inline-size: 40px;
+    inline-size: auto;
     block-size: 40px;
     margin-right: .6rem;
     filter: drop-shadow(0 4px 12px rgba(0,0,0,.22));
+  }
+  .brand--footer .brand__logo-img {
+    block-size: 32px;
+    margin-right: .5rem;
   }
 
   /* show primary links */
